@@ -146,8 +146,28 @@ window.location="favoritos.php?idJuego="+idJuego+"&accion=quitar";
 <br>
 <h1>JUEGO</h1>
 <article class="videoContainer">
+
+
         <?php if($juego->trailer != "not available"){ ?>
-            <h2 >Score:  </h2><h2 id="score"></h2>
+
+
+            <h2 style="display: inline;" id="score">Score: 0</h2>
+            
+            <?php
+                if(isset($_SESSION['user'])){
+                    $sql_puntuacion = "SELECT * FROM puntuaciones WHERE idJuego=".$juego->idJuego." && idUsuario=".$_SESSION['user'];
+                    $qry_puntuacion=peticionSQL($sql_puntuacion,$link);
+                    
+                    if(mysqli_num_rows($qry_puntuacion)!=1){
+                    
+                        $sql_crear_puntuacion = "INSERT INTO puntuaciones VALUES (".$_SESSION['user'].",".$juego->idJuego.", 0";
+                        peticionSQL($sql_crear_puntuacion,$link);    
+                    }
+                }
+        ?> 
+            <h2 style="display: inline; padding-left: 10%;">Puntuacion total: 0</h2>
+            
+            
             <iframe src="<?=$juego->trailer ?>" width="100%" height="750"></iframe>
             <script>
                 window.addEventListener('message', function(event) {
@@ -158,7 +178,7 @@ window.location="favoritos.php?idJuego="+idJuego+"&accion=quitar";
                     var score = event.data.score;
                 // código para actualizar el contador en la página principal
                     var contador = document.getElementById('score');
-                    contador.textContent= score;
+                    contador.textContent= "Score: " + score;
                     }
                 });
             
