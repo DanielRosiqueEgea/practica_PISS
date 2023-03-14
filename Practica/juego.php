@@ -158,14 +158,20 @@ window.location="favoritos.php?idJuego="+idJuego+"&accion=quitar";
                     $sql_puntuacion = "SELECT * FROM puntuaciones WHERE idJuego=".$juego->idJuego." && idUsuario=".$_SESSION['user'];
                     $qry_puntuacion=peticionSQL($sql_puntuacion,$link);
                     
-                    if(mysqli_num_rows($qry_puntuacion)!=1){
+                    if(mysqli_num_rows($qry_puntuacion)<1){
                     
                         $sql_crear_puntuacion = "INSERT INTO puntuaciones VALUES (".$_SESSION['user'].",".$juego->idJuego.", 0";
-                        peticionSQL($sql_crear_puntuacion,$link);    
+                        peticionSQL($sql_crear_puntuacion,$link);  
+                        $qry_puntuacion=peticionSQL($sql_puntuacion,$link);  
                     }
-                }
+                
+                $puntuacion = mysqli_fetch_object($qry_puntuacion)
+                            ?>
+                            <h2 style="display: inline; padding-left: 10%;" id="puntuacion-usuario">Puntuacion total: <?=$puntuacion->puntuacion?></h2>
+                            <?php
+            }
         ?> 
-            <h2 style="display: inline; padding-left: 10%;">Puntuacion total: 0</h2>
+            
             
             
             <iframe src="<?=$juego->trailer ?>" width="100%" height="750"></iframe>
@@ -174,11 +180,32 @@ window.location="favoritos.php?idJuego="+idJuego+"&accion=quitar";
                 // verificar si el mensaje es del tipo 'scoreUpdate'
                     if (event.data.type === 'scoreUpdate') {
                         console.log("SE ACTUALIZA LA PUNTUACION")
+
                 // actualizar el contador con el valor enviado por la página dentro del iframe
                     var score = event.data.score;
+                    
                 // código para actualizar el contador en la página principal
                     var contador = document.getElementById('score');
+                    var last_score = parseInt(contador.textContent.match(/\d+/)[0]);
+                    
                     contador.textContent= "Score: " + score;
+
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // actualizar la puntuación del usuario en la página
+                        var puntuacionUsuario = document.getElementById('puntuacion-usuario');
+                        puntuacionUsuario.textContent = "Puntuación total: " + this.responseText;
+                    }
+                    };
+                    xmlhttp.open("POST", "phpComponents/actualizar_puntuacion.php", true);
+                    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    if(last_score>score){
+                        score = score - last_score;
+                        console.log("Ha disminuido tu puntuacion en: "+score+" Puntos");
+                    }
+                    xmlhttp.send("idJuego=<?=$juego->idJuego?>&idUsuario=<?=$_SESSION['user']?>&puntuacion=" + score);
+
                     }
                 });
             
