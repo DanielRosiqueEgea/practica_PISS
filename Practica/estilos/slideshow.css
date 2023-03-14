@@ -1,0 +1,126 @@
+.tituloCat, .slideshow-container, .slide {box-sizing: border-box}
+/* medium and up screens */
+
+
+.tituloCat{
+    font-size: 25px;
+    text-align:center;
+    width: 150px;
+    padding: 1% 2%;
+    margin-left: 40%;
+    margin-right: 10%;
+    background-color: crimson;
+    color: #f1f1f1;
+    display: block;
+    border-radius: 10%;
+    margin-bottom: 1%;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  height: 310px;
+  padding-bottom: 10%;
+  margin-bottom:5%;
+  margin-left: 10%;
+  transition: 0.3s;
+
+}
+
+.slide{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+  font-family: arial;
+    height: 300px;
+    max-width: 20%;
+    float: left;
+    
+    margin: 0 2%;
+    background-color: #e3e3e3;
+  
+   
+}
+.precio{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #333;
+  background-color: #e3e3e3;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.precio:hover{
+  background-color: #333;
+  color: #e3e3e3;
+}
+.slide img{
+    height: 80%;
+    max-width: 100%;
+   
+    display:block;
+}
+.slide img:hover{
+    opacity: 0.7;
+}
+.slide a{
+  text-decoration: none;
+  color: black;
+}
+
+.slideBtnPrev{
+  cursor: pointer;
+  float:left;
+  margin-top:15%;
+  position:absolute;
+}
+.slideBtnNext{
+  cursor: pointer;
+  margin-left:75%;
+  margin-top:15%;
+  position:absolute;
+}
+
+.next{
+  border-radius: 0 3px 3px 0;
+}
+.prev{
+  
+  border-radius: 3px 0 0 3px;
+}
+
+.prev, .next{
+  padding: 16px;
+  background-color: #f2f2f2;
+  margin-right: 5%;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  z-index: 1;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #e3e3e3;
+  text-decoration: none;
+  color: black;
+}
+
+
+@media screen and (max-width: 500px) {
+  .slide {
+    transform: rotate(90);    
+display: none;
+  }
+  .first-child {
+      position: absolute;
+      margin-left: 9%;
+      max-width: 50%;
+      display: block;
+  }
+}

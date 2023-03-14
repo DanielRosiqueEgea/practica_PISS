@@ -1,0 +1,103 @@
+
+.sidepanel {
+  height: 100%; /* ocupa todo el alto de la pagina */
+  width: 0; /* el ancho se cambia con javascript */
+  position: fixed; /* queremos que se mantenga a la izquierda */
+  z-index: 2; /* y que se muestre por encima de todo */
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  overflow: scroll ; /*Desactivamos el scroll */
+  
+  transition: 0.5s;
+  font-size: 25px;
+}
+.sidepanel {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.sidepanel::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: rgb(203, 11, 30);
+    display: block;
+    transition: 0.2s;
+  }
+  
+  /* para cambiarle el color cuando se hace hover */
+  .sidepanel a:hover, .active {
+    color: #f1f1f1;
+    background-color: #111;
+  }
+  
+  
+  .sidepanel .closebtn {
+    /*position: absolute;/*La posicion del icono es a la izquierda y ocupa todo el espacio del sidepanel*/
+    padding-right: 100%;
+    padding-bottom: 0%;
+    top: 0;
+    left: 0;
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  
+
+
+/*
+Dropdown dentro del sidepanel
+*/
+
+.segundolvl a{ /*Para que los enlaces que haya en el segundo nivel se muevan un poco a la izquierda*/
+    margin-left: 5%;
+    padding-right: 5%;
+}
+
+.segundolvl a::before{ /* Para que se muestre la flecha antes de los enlaces del segundo nivel*/
+  content: '\021D2';
+}
+.segundolvl{
+  display: none;
+  background-color: #e2e2e2;
+}
+.fa-caret-right {
+  float: right;
+  padding-right: 8px;
+  transition: 0.5s;
+}
+.caret_down{
+  transform: rotate(90deg);
+  padding-top: 5%;
+  transition: 0.5s;
+}
+
+/* Boton de busqueda dentro del sidepanel*/
+
+.busqueda input[type=text] {
+  width: 55%;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding: 5%;
+  margin-left: 10%;
+  font-size: 17px;
+  border: 1px solid black;
+}
+.busqueda button {
+  width: 15%;
+  padding: 5%;
+ margin: 0%;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+ 
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}

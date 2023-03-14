@@ -1,0 +1,226 @@
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `practica`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comprados`
+--
+
+CREATE TABLE `comprados` (
+  `idUsuario` int(5) NOT NULL,
+  `idJuego` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `idUsuario` int(5) NOT NULL,
+  `idJuego` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `generos`
+--
+
+CREATE TABLE `generos` (
+  `idGenero` int(11) NOT NULL,
+  `nombreGenero` varchar(30) NOT NULL,
+  `descripcionGenero` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `generosjuego`
+--
+
+CREATE TABLE `generosjuego` (
+  `idGenero` int(5) NOT NULL,
+  `idJuego` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `idImagen` int(11) NOT NULL,
+  `urlImagen` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenesjuego`
+--
+
+CREATE TABLE `imagenesjuego` (
+  `idImagen` int(5) NOT NULL,
+  `idJuego` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `idUsuario` int(5) NOT NULL,
+  `nickname` varchar(30) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellidos` varchar(60) NOT NULL,
+  `contraseña` varchar(30) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `fechaNac` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `videojuegos`
+--
+
+CREATE TABLE `videojuegos` (
+  `idJuego` int(5) NOT NULL,
+  `nombreJuego` varchar(30) NOT NULL,
+  `descripcionJuego` text NOT NULL,
+  `precioJuego` decimal(10,2) NOT NULL,
+  `valoración` decimal(2,1) NOT NULL DEFAULT 0.0,
+  `trailer` varchar(60) NOT NULL,
+  `oferta` tinyint(1) NOT NULL DEFAULT 0,
+  `mas18` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `comprados`
+--
+ALTER TABLE `comprados`
+  ADD PRIMARY KEY (`idUsuario`,`idJuego`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD PRIMARY KEY (`idUsuario`,`idJuego`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `generos`
+--
+ALTER TABLE `generos`
+  ADD PRIMARY KEY (`idGenero`);
+
+--
+-- Indices de la tabla `generosjuego`
+--
+ALTER TABLE `generosjuego`
+  ADD PRIMARY KEY (`idGenero`,`idJuego`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`idImagen`);
+
+--
+-- Indices de la tabla `imagenesjuego`
+--
+ALTER TABLE `imagenesjuego`
+  ADD PRIMARY KEY (`idImagen`,`idJuego`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `nickname` (`nickname`);
+
+--
+-- Indices de la tabla `videojuegos`
+--
+ALTER TABLE `videojuegos`
+  ADD PRIMARY KEY (`idJuego`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `generos`
+--
+ALTER TABLE `generos`
+  MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `idImagen` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUsuario` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `videojuegos`
+--
+ALTER TABLE `videojuegos`
+  MODIFY `idJuego` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `comprados`
+--
+ALTER TABLE `comprados`
+  ADD CONSTRAINT `comprados_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `comprados_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `generosjuego`
+--
+ALTER TABLE `generosjuego`
+  ADD CONSTRAINT `generosJuego_ibfk_1` FOREIGN KEY (`idGenero`) REFERENCES `generos` (`idGenero`),
+  ADD CONSTRAINT `generosJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `imagenesjuego`
+--
+ALTER TABLE `imagenesjuego`
+  ADD CONSTRAINT `imagenesJuego_ibfk_1` FOREIGN KEY (`idImagen`) REFERENCES `imagenes` (`idImagen`),
+  ADD CONSTRAINT `imagenesJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+COMMIT;
