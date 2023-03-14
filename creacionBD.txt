@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2023 a las 18:01:48
+-- Tiempo de generación: 14-03-2023 a las 19:39:43
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.5
 
@@ -87,6 +87,28 @@ INSERT INTO `consolas` (`idConsola`, `nombreConsola`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `equipo`
+--
+
+CREATE TABLE `equipo` (
+  `id_equipo` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `puesto` varchar(30) NOT NULL,
+  `description` varchar(90) NOT NULL,
+  `email` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `equipo`
+--
+
+INSERT INTO `equipo` (`id_equipo`, `nombre`, `puesto`, `description`, `email`) VALUES
+(1, 'Daniel Rosique Egea', 'Programador', 'Estudiante de Ingeniería informática', 'drosique6@alu.ucam.edu'),
+(2, 'Oscar David Romero Humber', 'Jefe Empresa', 'Estudiante Ingeniería informatica', 'odromerohumber@alu.ucam.edu');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `favoritos`
 --
 
@@ -104,6 +126,7 @@ INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
 (1, 3),
 (1, 6),
 (1, 12),
+(1, 14),
 (1, 20),
 (3, 1);
 
@@ -212,6 +235,25 @@ INSERT INTO `imagenes` (`idImagen`, `idJuego`, `urlImagen`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `puntuaciones`
+--
+
+CREATE TABLE `puntuaciones` (
+  `idUsuario` int(5) NOT NULL,
+  `idJuego` int(5) NOT NULL,
+  `puntuacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `puntuaciones`
+--
+
+INSERT INTO `puntuaciones` (`idUsuario`, `idJuego`, `puntuacion`) VALUES
+(1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -296,6 +338,12 @@ ALTER TABLE `consolas`
   ADD PRIMARY KEY (`idConsola`);
 
 --
+-- Indices de la tabla `equipo`
+--
+ALTER TABLE `equipo`
+  ADD PRIMARY KEY (`id_equipo`);
+
+--
 -- Indices de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
@@ -321,6 +369,13 @@ ALTER TABLE `generosjuego`
 ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`idImagen`),
   ADD UNIQUE KEY `urlImagen` (`urlImagen`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `puntuaciones`
+--
+ALTER TABLE `puntuaciones`
+  ADD PRIMARY KEY (`idUsuario`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
@@ -407,4 +462,11 @@ ALTER TABLE `generosjuego`
 --
 ALTER TABLE `imagenes`
   ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `puntuaciones`
+--
+ALTER TABLE `puntuaciones`
+  ADD CONSTRAINT `puntuaciones_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `puntuaciones_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
 COMMIT;
