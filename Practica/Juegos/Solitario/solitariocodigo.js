@@ -137,11 +137,13 @@ Optional Features:
 
    // other global vars
    var clock = 0;
+   
    var time = 0;
    var moves = 0;
    var score = 0;
    var bonus = 0;
    var lastEventTime = 0;
+   var last_event_elapsed =0;
    var unplayedTabCards = [];
 
 // 1. CREATE DECK
@@ -168,7 +170,7 @@ Optional Features:
 
    // create deck
       function create(deck, suits) {
-         console.log('Creating Deck...');
+         //  console.log('Creating Deck...');
          // loop through each suit
          for (var suit in suits) {
             suit = suits[suit];
@@ -183,7 +185,7 @@ Optional Features:
 
    // shuffle deck
       function shuffle(deck) {
-         console.log('Shuffling Deck...');
+         //  console.log('Shuffling Deck...');
          // declare vars
          var i = deck.length, temp, rand;
          // while there remain elements to shuffle
@@ -201,7 +203,7 @@ Optional Features:
 
    // deal deck
       function deal(deck, table) {
-         console.log('Dealing Deck...');
+         // console.log('Dealing Deck...');
          // move all cards to stock
          table['stock'] = deck;
          // build tableau
@@ -241,7 +243,7 @@ Optional Features:
 
    // render table
       function render(table, playedCards) {
-         console.log('Rendering Table...');
+         //  console.log('Rendering Table...');
 
          // check for played cards
          playedCards = checkForPlayedCards(playedCards);
@@ -278,7 +280,7 @@ Optional Features:
          // show table
          $table.style.opacity = '100';
 
-         console.log('Table Rendered:', table);
+         //  console.log('Table Rendered:', table);
          return;
       }
 
@@ -536,8 +538,8 @@ Optional Features:
             '#tab .card:last-child',
             'double'
          );
-         console.log('Make Your Move...');
-         console.log('......');
+         //  console.log('Make Your Move...');
+         //  console.log('......');
       }
 
    // bind click events
@@ -585,15 +587,16 @@ Optional Features:
          }
 
          // if timestamp matches then return false
-         var time = event.timeStamp; // get timestamp
-         if ( time === lastEventTime ) {
-            console.log('Status: Timestamp Matches, False Click');
+         var tiempo = event.timeStamp; // get timestamp
+         if ( tiempo === lastEventTime ) {
+            //  console.log('Status: Timestamp Matches, False Click');
             return false;
          }
          else {
-            lastEventTime = time; // cache timestamp
+            
+            lastEventTime = timer; // cache timestamp
          }
-
+         last_event_elapsed = time;
          // get variables
          var e = event.target; // get element
          var isSelected = e.dataset.selected; // get selected attribute
@@ -611,25 +614,25 @@ Optional Features:
          // single click
          if (clicks === 1 && event.type === 'click') {
             clickTimer = setTimeout(function() {
-               console.log('Single Click Detected', event);
+               //  console.log('Single Click Detected', event);
 
                // reset click counter
                clicks = 0;
 
                // if same card is clicked
                if (e.dataset.selected === 'true') {
-                  console.log('Status: Same Card Clicked');
+                  //  console.log('Status: Same Card Clicked');
                   // deselect card
                   delete e.dataset.selected;
                   delete $table.dataset.move;
                   delete $table.dataset.selected;
                   delete $table.dataset.source;
-                  console.log('Card Deselected', card, e);
+                  //  console.log('Card Deselected', card, e);
                }
 
                // if move is in progress
                else if ($table.dataset.move) {
-                  console.log('Status: A Move Is In Progess');
+                  //  console.log('Status: A Move Is In Progess');
                   // get selected
                   var selected = $table.dataset.selected.split(',');
                   // update table dataset with destination pile
@@ -645,17 +648,17 @@ Optional Features:
                      render(table, playedCards);
                      play(table);
                   } else {
-                     console.log('Move is Invalid. Try again...');
+                     //  console.log('Move is Invalid. Try again...');
                      reset(table);
                      render(table, playedCards);
                      play(table);
-                     console.log('Card Deselected', card, e);
+                     //  console.log('Card Deselected', card, e);
                   }
                }
 
                // if stock is clicked
                else if (pile === 'stock') {
-                  console.log('Status: Stock Pile Clicked');
+                  // console.log('Status: Stock Pile Clicked');
                   // if stock isn't empty
                   if (table['stock'].length) {
                      // move card from stock to waste
@@ -673,7 +676,7 @@ Optional Features:
 
                // if stock reload icon is clicked
                else if (action === 'reload') {
-                  console.log('Reloading Stock Pile');
+                  // console.log('Reloading Stock Pile');
                   // remove event listener
                   unbindClick('#stock .reload-icon');
                   // reload stock pile
@@ -700,11 +703,11 @@ Optional Features:
                   $table.dataset.source = e.closest('.pile').dataset.pile;
                   // if ace is selected
                   if (rank === 'A') {
-                     console.log('Ace Is Selected');
+                     // console.log('Ace Is Selected');
                      bindClick('#fnd #'+suit+'s.pile[data-empty="true"]');
                   }
                   if (rank === 'K') {
-                     console.log('King Is Selected');
+                     // console.log('King Is Selected');
                      bindClick('#tab .pile[data-empty="true"]');
                   }
                }
@@ -714,7 +717,7 @@ Optional Features:
 
          // double click
          else if (event.type === 'dblclick') {
-            console.log('Double Click Detected', event);
+            // console.log('Double Click Detected', event);
             clearTimeout(clickTimer); // prevent single click
             clicks = 0; // reset click counter
             // select card
@@ -734,11 +737,11 @@ Optional Features:
                render(table, playedCards);
                play(table);
             } else {
-               console.log('Move is Invalid. Try again...');
+               // console.log('Move is Invalid. Try again...');
                reset(table);
                render(table, playedCards);
                play(table);
-               console.log('Card Deselected', card, e);
+               // console.log('Card Deselected', card, e);
             }
 
          }
@@ -747,7 +750,7 @@ Optional Features:
 
    // validate move
       function validateMove(selected, dest) {
-         console.log ('Validating Move...', selected, dest);
+         // console.log ('Validating Move...', selected, dest);
 
          // if selected card exists
          if (selected) {
@@ -757,7 +760,7 @@ Optional Features:
 
          // if destination is another card
          if (dest.constructor === Array) {
-            console.log('Desitination appears to be a card');
+            // console.log('Desitination appears to be a card');
             var dRank = parseRankAsInt(dest[0]);
             var dSuit = dest[1];
             var dPile = $table.dataset.dest;
@@ -765,13 +768,13 @@ Optional Features:
             if (['spades','hearts','diamonds','clubs'].indexOf(dPile) >= 0) {
                // if rank isn't in sequence then return false
                if (dRank - sRank !== -1) {
-                 console.log('Rank sequence invalid');
-                 console.log(dRank - sRank)
+                 // console.log('Rank sequence invalid');
+                 // console.log(dRank - sRank)
                  return false;
                }
                // if suit isn't in sequence then return false
                if ( sSuit !== dSuit ) {
-                  console.log('Suit sequence invalid');
+                  // console.log('Suit sequence invalid');
                   return false;
                }
             }
@@ -779,7 +782,7 @@ Optional Features:
             else {
                // if rank isn't in sequence then return false
                if (dRank - sRank !== 1) {
-                 console.log('Rank sequence invalid');
+                 // console.log('Rank sequence invalid');
                  return false;
                }
                // if suit isn't in sequence then return false
@@ -787,19 +790,19 @@ Optional Features:
                   (dSuit === 'spade' || dSuit === 'club') ) ||
                   ( (sSuit === 'heart' || sSuit === 'diamond') &&
                   (dSuit === 'heart' || dSuit === 'diamond') ) ) {
-                 console.log('Suit sequence invalid');
+                 // console.log('Suit sequence invalid');
                  return false;
                }
             }
             // else return true
-            console.log('Valid move');
+            // console.log('Valid move');
             return true;
 
          }
 
          // if destination is foundation pile
          if (['spades','hearts','diamonds','clubs'].indexOf(dest) >= 0) {
-            console.log('Destination appears to be empty foundation');
+            // console.log('Destination appears to be empty foundation');
 
             // get last card in destination pile
             var lastCard = d.querySelector('#'+dest+' .card:first-child');
@@ -809,29 +812,29 @@ Optional Features:
             }
             // if suit doesn't match pile then return false
             if ( sSuit + 's' !== dest ) {
-               console.log('Suit sequence invalid');
+               // console.log('Suit sequence invalid');
                return false;
             }
             // if rank is ace then return true
             else if ( sRank === 1 ) {
-               console.log('Valid Move');
+               // console.log('Valid Move');
                return true;
             }
             // if rank isn't in sequence then return false
             else if ( sRank - dRank !== 1 ) {
-               console.log('Rank sequence invalid');
+               // console.log('Rank sequence invalid');
                return false;
             }
             // else return true
             else {
-               console.log('Valid move');
+               // console.log('Valid move');
                return true;
             }
          }
 
          // if destination is empty tableau pile
          if ( dest >= 1 && dest <= 7 ) {
-            console.log('Destination appears tp be empty tableau');
+            // console.log('Destination appears tp be empty tableau');
             return true;
          }
 
@@ -839,24 +842,25 @@ Optional Features:
 
    // make move
       function makeMove() {
-         console.log('Making Move...');
+         // console.log('Making Move...');
+
 
          // get source and dest
          var source = $table.dataset.source;
          var dest = $table.dataset.dest;
-         console.log('From '+source+' pile to '+dest+' pile');
+         // console.log('From '+source+' pile to '+dest+' pile');
 
          // if pulling card from waste pile
          if ( source === 'waste') {
             // if moving card to foundation pile
             if ( isNaN(dest) ) {
-               console.log('Moving To Foundation Pile');
+               // console.log('Moving To Foundation Pile');
                move(table[source], table[dest], true);
                updateScore(10); // score 10 pts
             }
             // if moving card to tableau pile
             else {
-               console.log('Moving To Tableau Pile');
+               // console.log('Moving To Tableau Pile');
                move(table[source], table['tab'][dest], true);
                updateScore(5); // score 5 pts
             }
@@ -866,12 +870,12 @@ Optional Features:
          else if (['spades','hearts','diamonds','clubs'].indexOf(source) >= 0) {
             // only allow moves to tableau piles
             if ( isNaN(dest) ) {
-               console.log('That move is not allowed');
+               // console.log('That move is not allowed');
                return false;
             }
             // if moving card to tableau pile
             else {
-               console.log('Moving To Tableau Pile');
+               // console.log('Moving To Tableau Pile');
                move(table[source], table['tab'][dest], true);
                updateScore(-15); // score -15 pts
             }
@@ -881,13 +885,13 @@ Optional Features:
          else {
             // if moving card to foundation pile
             if ( isNaN(dest) ) {
-               console.log('Moving To Foundation Pile');
+               // console.log('Moving To Foundation Pile');
                move(table['tab'][source], table[dest], true);
                updateScore(10); // score 10 pts
             }
             // if moving card to tableau pile
             else {
-               console.log('Moving To Tableau Pile');
+               // console.log('Moving To Tableau Pile');
                // get selected card
                var selected = d.querySelector('.card[data-selected="true"');
                // get cards under selected card
@@ -928,7 +932,7 @@ Optional Features:
          countMove(moves++);
 
          // reset table
-         console.log('Ending Move...');
+         // console.log('Ending Move...');
 
          return;
       }
@@ -972,7 +976,7 @@ Optional Features:
          delete $fnd.dataset.unplayed;
          delete $tab.dataset.played;
          delete $tab.dataset.unplayed;
-         console.log('Table reset');
+         // console.log('Table reset');
       }
 
    // timer funcion
@@ -987,7 +991,7 @@ Optional Features:
          switch (action) {
             // start timer
             case 'start' :
-               console.log('Starting Timer...');
+               // console.log('Starting Timer...');
                // looping function
                clock = setInterval(function() {
                   // increment
@@ -1000,6 +1004,16 @@ Optional Features:
                   // output to display
                   $timerSpan.textContent = minutes + ':' + seconds;
                   // if 10 seconds has passed decrement score by 2 pts
+                  
+                  var time_difference = time- last_event_elapsed;
+                  // console.log("DESDE ULTIMO MOVIMINETO:: " + time_difference )
+                  if (time_difference>300){
+                     // window.parent.postMessage({ type: 'timeOut', time: time_difference }, '*');
+                     window.alert("CUIDADO, NO ESTÁS JUGANDO");
+                     $timer.dataset.action = 'pause';
+                     
+                     timer('pause');
+                  } 
                   if ( time % 10 === 0 ) updateScore(-2);
                }, 1000);
                // add dataset to body
@@ -1014,7 +1028,8 @@ Optional Features:
             break;
             // pause timer
             case 'pause' :
-               console.log('Pausing Timer...');
+               // console.log('Pausing Timer...');
+               last_event_elapsed = time;
                clearInterval(clock);
                d.body.dataset.gameplay = 'paused';
                // unbind click to pause button
@@ -1027,20 +1042,20 @@ Optional Features:
             break;
             // stop timer
             case 'stop' :
-               console.log('Stoping Timer...');
+               // console.log('Stoping Timer...');
                clearInterval(clock);
                d.body.dataset.gameplay = 'over';
             break;
             // default
             default : break;
          }
-         console.log(time);
+         // console.log(time);
          return;
       }
 
    // move counter
       function countMove(moves) {
-         console.log('Move Counter', moves);
+         // console.log('Move Counter', moves);
          // set move attribute
          $moveCount.dataset.moves = moves + 1;
          // output to display
@@ -1064,7 +1079,7 @@ Optional Features:
          For every 10 seconds of play, 2 points are taken away. Bonus points are calculated with the formula of 700,000 / (seconds to finish) if the game takes more than 30 seconds. If the game takes less than 30 seconds, no bonus points are awarded.
       */
       function updateScore(points) {
-         console.log('Updating Score', points);
+         // console.log('Updating Score', points);
          // get score
          score = parseInt($score.dataset.score) + points;
          // set minimum score to 0
@@ -1075,7 +1090,7 @@ Optional Features:
          $score.dataset.score = score;
          // output to display
          $score.children[1].textContent = score;
-         console.log("SE ENVIA LA PUNTUACION PARA ACTUALIZAR")
+         // console.log("SE ENVIA LA PUNTUACION PARA ACTUALIZAR")
          window.parent.postMessage({ type: 'scoreUpdate', score: score }, '*');
          return score;
       }
@@ -1083,7 +1098,7 @@ Optional Features:
    // calculate bonus points
       function getBonus() {
          if (time >= 30) bonus = parseInt(700000 / time);
-         console.log(bonus);
+         // console.log(bonus);
          return bonus;
       }
 
@@ -1095,7 +1110,7 @@ Optional Features:
                table['diamonds'].length +
                table['clubs'].length
                === 52 ) {
-            console.log('Game Has Been Won');
+            // console.log('Game Has Been Won');
             // stop timer
             timer('stop');
             // bonus points for time
@@ -1124,7 +1139,7 @@ Optional Features:
 
    // auto win
       function autoWin() {
-         console.log('Huzzah!');
+         // console.log('Huzzah!');
          // hide auto win button
          $autoWin.style.display = 'none';
          // unbind click to auto win button
@@ -1199,7 +1214,7 @@ Optional Features:
                   reset(table);
                   render(table, playedCards);
                } else {
-                  console.log('Move is Invalid. Try again...');
+                  // console.log('Move is Invalid. Try again...');
                   reset(table);
                   render(table, playedCards);
                }
@@ -1220,7 +1235,7 @@ Optional Features:
          https://codepen.io/gamanox/pen/FkEbH
       */
       function throwConfetti() {
-         console.log('Confetti!');
+         // console.log('Confetti!');
 
          var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, drawCircle2, drawCircle3, i, range, xpos;
 
