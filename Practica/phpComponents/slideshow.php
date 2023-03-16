@@ -63,7 +63,8 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             ?>
 
                      
-                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?$juego->nombreJuego?>">
+                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                            <!-- onerror="this.src='imagenes/img_not_found.webp';" -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
                             <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
                         </a>
