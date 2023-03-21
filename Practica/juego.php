@@ -66,8 +66,7 @@
                 
 
             }
-        });
-
+       
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
@@ -86,6 +85,8 @@
         }
 
         xmlhttp.send(\"idJuego=".$_GET['juego']."&idUsuario=".$_SESSION['user']."&puntuacion=\" + score);
+    });
+
         ";
         $sql_puntuacion = "SELECT * FROM puntuaciones WHERE idJuego=".$_GET['juego']." && idUsuario=".$_SESSION['user'];
         $qry_puntuacion = peticionSQL($sql_puntuacion, $link);
@@ -178,7 +179,12 @@
 
 
                 <iframe src="<?= $juego->trailer ?>" width="100%" height="750"></iframe>
-
+                <script>
+                console.log("Hola")
+                <?=$actualizar_puntuacion?>
+                <?=$ocultar_juego?>
+                </script>
+                <?php include("phpComponents/ranking.php"); ?> 
             <?php } else { ?>
                 <div> NO DISPONIBLE</div>
 
@@ -187,15 +193,12 @@
 
 
 
-
+        
         </article>
     </section>
 
-
-    <script>
-        <?=$actualizar_puntuacion?>
-        <?=$ocultar_juego?>
-    </script>
+                
+ 
 
 
 </body>
