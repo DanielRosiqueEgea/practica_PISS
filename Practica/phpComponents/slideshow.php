@@ -38,7 +38,7 @@ for($i=(count($sql)-1);$i>=0;$i--){
                 <?php 
                     $resultado = peticionSQL($sql[$i],$dblink);
                 
-                    if(mysqli_num_rows($resultado)>1){
+                    if(mysqli_num_rows($resultado)>=1){
                 ?>
             <section class="slideshow-container">
                 <article>
