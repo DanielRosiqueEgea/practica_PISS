@@ -27,6 +27,7 @@
 <?php
     include_once("phpComponents/funcionBBDD.php");
     include("phpComponents/topbar.php");
+    include("phpComponents/float_button.php");
     $link = db_Connect();
     $favbutton ="";
     $funcion = "document.getElementById('id01').style.display='block'";

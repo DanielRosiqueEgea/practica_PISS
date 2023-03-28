@@ -1,5 +1,6 @@
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
+
 <style>
 		.animada {
 			transition: transform 0.3s ease-out;
@@ -11,14 +12,19 @@
     .animada-hover {
   color: #ff6ec7; /* Cambiar por el color rosa neon deseado */
 }
+
+.active:hover{
+  
+}
 </style>
 <script>
-		function animar() {
-			document.querySelector('.animada').classList.add('animada-hover');
+		function animar(element) {
+			element.setAttribute('src',"imagenes/transparent_logo.gif");
+      
 		}
 
-		function detener() {
-			document.querySelector('.animada').classList.remove('animada-hover');
+		function detener(element) {
+			element.setAttribute('src',"imagenes/bandidosBinarios-removebg-preview.png");
 		}
     
 </script>
@@ -155,7 +161,7 @@
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <ul class="list-unstyled mb-0">
-          <img class="animada" onmouseover="animar()" onmouseout="detener()" src="imagenes/bandidosBinarios-removebg-preview.png " weight=70 height="70">
+          <img class="animada" onmouseover="animar(this)" onmouseout="detener(this)" src="imagenes/bandidosBinarios-removebg-preview.png" weight=70 height="70">
           </ul>
         </div>
         <!--Grid column-->
@@ -167,7 +173,7 @@
   <!-- Grid container -->
   
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgb(60, 60, 60)">
     © 2020 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
