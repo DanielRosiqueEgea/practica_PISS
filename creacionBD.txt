@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2023 a las 19:39:43
+-- Tiempo de generación: 28-03-2023 a las 18:18:01
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.5
 
@@ -128,7 +128,8 @@ INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
 (1, 12),
 (1, 14),
 (1, 20),
-(3, 1);
+(3, 3),
+(3, 6);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ INSERT INTO `imagenes` (`idImagen`, `idJuego`, `urlImagen`) VALUES
 (1, 3, 'marcianitos.PNG'),
 (2, 1, 'solitario.png'),
 (3, 6, 'prototype.webp'),
-(4, 5, 'infamous.jpg'),
+(4, 5, 'mazeRunner.tiff'),
 (5, 15, 'Blazing Beaks.jfif'),
 (6, 13, 'GTAV.jpg'),
 (7, 14, 'Isaac.jpg'),
@@ -249,7 +250,18 @@ CREATE TABLE `puntuaciones` (
 --
 
 INSERT INTO `puntuaciones` (`idUsuario`, `idJuego`, `puntuacion`) VALUES
-(1, 1, 0);
+(1, 1, 81363),
+(1, 3, 0),
+(1, 5, 0),
+(1, 12, 0),
+(3, 1, 125),
+(3, 3, 0),
+(3, 5, 0),
+(3, 6, 0),
+(3, 12, 0),
+(3, 14, 0),
+(3, 15, 0),
+(3, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -298,9 +310,9 @@ CREATE TABLE `videojuegos` (
 
 INSERT INTO `videojuegos` (`idJuego`, `nombreJuego`, `descripcionJuego`, `precioJuego`, `valoración`, `trailer`, `oferta`, `mas18`) VALUES
 (1, 'Solitario', 'Un juego para dominarlos a todos. Para atraerlos a todos y atarlos a sus pantallas. Si el escritor de \"El Señor de los Anillos\" hubiese elegido un juego para lanzar su profecía -en lugar de un anillo- posiblemente hubiese utilizado el Solitario, el mítico juego de cartas de Windows', '0.00', '9.9', 'Juegos/Solitario/solitario.html', 1, 1),
-(3, 'Marcianitos', 'El Mejor Juego de Marcianitos Del Mundo', '1.00', '9.9', 'Juegos\\Marcianitos\\twinShooter-HTML5-Shipping.html', 1, 0),
-(5, 'Infamous', 'Infamous ofrece la posibilidad de jugar con un superhéroe en el gigantesco entorno de Empire City, con electrizantes superpoderes de alto voltaje y piruetas mortales. Cole McGrath deberá decidir si quiere utilizar sus poderes para hacer el bien o el mal.', '10.95', '7.5', 'not available', 1, 0),
-(6, 'Prototype', 'El principal super-poder de Alex es su capacidad para cambiar de forma, cambiando su cuerpo en el de cualquier persona. De la mano con este poder esta su habilidad para \"consumir\" a los demás, absorbiéndolos por completo. Este proceso permite a Alex recuperar salud rápidamente al absorber la biomasa de sus enemigos.', '10.50', '8.2', 'not available', 1, 1),
+(3, 'Marcianitos', 'El Mejor Juego de Marcianitos Del Mundo', '1.00', '9.9', 'Juegos\\SpaceShip\\twinShooter-HTML5-Shipping.html', 1, 0),
+(5, 'Maze Runner', 'Escapa del laberinto antes que el resto de jugadores. En este juego tendrás que ser el más rapido', '10.95', '7.5', 'Juegos\\Laberinto\\Laberinto.html', 1, 0),
+(6, 'WesternShooter', 'PEW PEW', '10.50', '8.2', 'Juegos/ShooterOeste/MultiplayerShootout.html', 1, 1),
 (12, 'Rayman 3 Hoodlum Havoc', 'Rayman vuelve a sus adventuras y hoy le toca enfrentarse a André un Hoodlum corrompido que pone en riesgo todos los planos.', '5.90', '8.4', 'not available', 1, 0),
 (13, 'Grand Theft Auto V', 'Vuelve la saga de GTA, esta vez con Miguel, Trevor y Francisco. Roba coches y bancos en esta nueva entrega.', '30.50', '9.0', 'not available', 0, 1),
 (14, 'The Binding Of Isaac', 'Isaac es un niño que se pierde en su sotano, y en el tendrá que enfrentarse a monstuos y bichos usando sus lagrimas', '14.95', '9.9', 'not available', 1, 0),
