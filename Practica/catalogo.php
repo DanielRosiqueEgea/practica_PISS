@@ -7,26 +7,54 @@
     <?php 
 
   //para volver al index si no se ha incluido parametro de busqueda
-  if(!isset($_GET['genero']) && !isset($_GET['nombre']) && !isset($_GET['consola'])&& !isset($_GET['all'])){
-      header("Location: index.php");
-      exit;
-  }
-  //en funcion de la consulta que queramos hacer hacemos una consulta u otra
-  if(isset($_GET['genero'])){
-  $sql ="SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.idGenero=".$_GET['genero'];
-  }
-  if(isset($_GET['consola'])){
-    $sql ="SELECT consolas.*, consolaJuego.*, videojuegos.* FROM consolas LEFT JOIN consolaJuego ON consolas.idConsola = consolajuego.idConsola LEFT JOIN videojuegos ON consolajuego.idJuego = videojuegos.idJuego WHERE consolas.idConsola=".$_GET['consola'];
+//   if(!isset($_GET['genero']) && !isset($_GET['nombre']) && !isset($_GET['consola'])&& !isset($_GET['all'])){
+//       header("Location: index.php");
+//       exit;
+//   }
+
+//   //en funcion de la consulta que queramos hacer hacemos una consulta u otra
+//   if(isset($_GET['genero'])){
+//   $sql ="SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.idGenero=".$_GET['genero'];
+//   }
+//   if(isset($_GET['consola'])){
+//     $sql ="SELECT consolas.*, consolaJuego.*, videojuegos.* FROM consolas LEFT JOIN consolaJuego ON consolas.idConsola = consolajuego.idConsola LEFT JOIN videojuegos ON consolajuego.idJuego = videojuegos.idJuego WHERE consolas.idConsola=".$_GET['consola'];
+//     }
+//     if(isset($_GET['nombre'])){
+//        $sql="SELECT `videojuegos`.* FROM `videojuegos`
+//        WHERE `videojuegos`.`nombreJuego` LIKE '%".$_GET['nombre']."%'"; 
+//     }
+//     if(isset($_GET['all'])){
+//         $sql="SELECT * FROM videojuegos";
+//     }
+
+
+    
+    // include("../../Practica/head.php");
+    $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.precioJuego FROM videojuegos AS v";
+    $sql = $sql. " LEFT JOIN generosjuego ON generosjuego.idJuego = v.idJuego LEFT JOIN generos ON generosjuego.idGenero = generos.idGenero"; 
+    $sql = $sql." LEFT JOIN consolajuego ON v.idJuego = consolajuego.idJuego LEFT JOIN consolas ON consolajuego.idConsola = consolas.idConsola";
+    $sql = $sql." WHERE TRUE ";
+    if(isset($_POST["genero"])){
+        $nombre = $_POST["genero"];
+        $sql = $sql. "AND";
+    foreach($nombre as $genero){
+        $sql = $sql. " generos.idGenero = \"".$genero."\" OR ";
     }
-    if(isset($_GET['nombre'])){
-       $sql="SELECT `videojuegos`.* FROM `videojuegos`
-       WHERE `videojuegos`.`nombreJuego` LIKE '%".$_GET['nombre']."%'"; 
+        $sql = $sql. " FALSE ";
     }
-    if(isset($_GET['all'])){
-        $sql="SELECT * FROM videojuegos";
+    if(isset($_POST["consola"])){
+        $nombre = $_POST["consola"];
+        $sql = $sql. "AND";
+    foreach($nombre as $consola){
+        $sql = $sql. " consolas.idConsola = \"".$consola."\" OR ";
+    }
+        $sql = $sql. " FALSE";
     }
 
+    
 ?>     
+
+     
    
 </head>
 

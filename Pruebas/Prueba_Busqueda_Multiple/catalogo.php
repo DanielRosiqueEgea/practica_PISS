@@ -5,28 +5,29 @@
     <title>Fractal Games Catalogo</title>
     
     <?php 
-    include("../../Practica/head.php");
-    $sql="SELECT * FROM videojuegos";
-  //para volver al index si no se ha incluido parametro de busqueda
-  if(!isset($_GET['genero']) && !isset($_GET['nombre']) && !isset($_GET['consola'])&& !isset($_GET['all'])){
-      //header("Location: index.php");
-      //exit;
-  }
-  //en funcion de la consulta que queramos hacer hacemos una consulta u otra
-  if(isset($_GET['genero'])){
-  $sql ="SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.idGenero=".$_GET['genero'];
-  }
-  if(isset($_GET['consola'])){
-    $sql ="SELECT consolas.*, consolaJuego.*, videojuegos.* FROM consolas LEFT JOIN consolaJuego ON consolas.idConsola = consolajuego.idConsola LEFT JOIN videojuegos ON consolajuego.idJuego = videojuegos.idJuego WHERE consolas.idConsola=".$_GET['consola'];
+    // include("../../Practica/head.php");
+    $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.precioJuego FROM videojuegos AS v";
+    $sql = $sql. " LEFT JOIN generosjuego ON generosjuego.idJuego = v.idJuego LEFT JOIN generos ON generosjuego.idGenero = generos.idGenero"; 
+    $sql = $sql." LEFT JOIN consolajuego ON v.idJuego = consolajuego.idJuego LEFT JOIN consolas ON consolajuego.idConsola = consolas.idConsola";
+    $sql = $sql." WHERE TRUE ";
+    if(isset($_POST["genero"])){
+        $nombre = $_POST["genero"];
+        $sql = $sql. "AND";
+    foreach($nombre as $genero){
+        $sql = $sql. " generos.nombreGenero = \"".$genero."\" OR ";
     }
-    if(isset($_GET['nombre'])){
-       $sql="SELECT `videojuegos`.* FROM `videojuegos`
-       WHERE `videojuegos`.`nombreJuego` LIKE '%".$_GET['nombre']."%'"; 
+        $sql = $sql. " FALSE ";
     }
-    // if(isset($_GET['all'])){
-        
-    // }
+    if(isset($_POST["consola"])){
+        $nombre = $_POST["consola"];
+        $sql = $sql. "AND";
+    foreach($nombre as $consola){
+        $sql = $sql. " consola.nombreConsola = \"".$consola."\" OR ";
+    }
+        $sql = $sql. " FALSE";
+    }
 
+    
 ?>     
    
 </head>
@@ -35,7 +36,8 @@
 <section id="mainContent">
     
         <?php
-          
+            include("formulario.php");
+          echo "<br>".$sql."</br>";
         
          
           include_once("../../Practica/phpComponents/funcionBBDD.php");
@@ -70,7 +72,7 @@
                             ?>
 
                      
-                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                            <!-- <img  itemprop="image" src="imagenes/<=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<=$juego->nombreJuego?>"> -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
                             <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
                         </a>
@@ -86,8 +88,8 @@
 <?php }?>
             
             </section>
-            <?php include("phpComponents/footer.php")?>
-            <link rel="stylesheet" type="text/css" href="estilos/slideshow.css">
+            <!-- <php include("phpComponents/footer.php")?>
+            <link rel="stylesheet" type="text/css" href="estilos/slideshow.css"> -->
 </body>
 </html>
 <!-- https://stackoverflow.com/questions/18421988/getting-checkbox-values-on-submit -->

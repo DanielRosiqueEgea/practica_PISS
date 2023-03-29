@@ -23,7 +23,13 @@
             while ($genero = mysqli_fetch_object($rsc_generos)) {
                 
             ?>
-            <a href="catalogo.php?genero=<?=$genero->idGenero?>"><?=$genero->nombreGenero?></a>
+            <form method="post" action="catalogo.php" class="inline">
+                <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+                <button type="submit" name="genero[]" id="genero" value="<?=$genero->idGenero?>" class="link-button">
+                <?=$genero->nombreGenero?>
+                </button>
+                </form> 
+            <!-- <a href="catalogo.php?genero=<=$genero->idGenero?>"><=$genero->nombreGenero?></a> -->
             <?php }}?>
 
         </span>
@@ -39,7 +45,13 @@
             while ($consola = mysqli_fetch_object($rsc_consolas)) {
                 
             ?>
-            <a href="catalogo.php?consola=<?=$consola->idConsola?>"><?=$consola->nombreConsola?></a>
+              <form method="post" action="catalogo.php" class="inline">
+                <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+                <button type="submit" name="consola[]" id="consola" value="<?=$consola->idConsola?>" class="link-button">
+                <?=$consola->nombreConsola?>
+                </button>
+                </form> 
+            <!-- <a href="catalogo.php?consola=<=$consola->idConsola?>"><=$consola->nombreConsola?></a> -->
             <?php }}?>
             
         </span>
