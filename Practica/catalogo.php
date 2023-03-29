@@ -72,14 +72,15 @@
                             ?>
 
                      
-                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?$juego->nombreJuego?>">
+                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
                             <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
                         </a>
                     </article>
                     
                     <?php if($i%4==3) echo "</section>";
-                        $i++; } 
+                        $i++; 
+                    } 
                         
                     ?>
 
