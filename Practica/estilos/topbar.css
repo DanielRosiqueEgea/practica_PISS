@@ -30,19 +30,18 @@
     color: black;
   }
   .navbar a.split:hover{
-    background-color: #333;
+    background-color: #ccd3d4;
     color: black;
   }
 
   /* Create a right-aligned (split) link inside the navigation bar */
   .navbar a.split {
-    float: right;
-    background-color: #04AA6D;
-    color: white;
+    padding: 20px;
   }
 
   /* Para el gif del logo */
 	.animada {
+    
 		transition: transform 0.3s ease-out;
 	}
 
