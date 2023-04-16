@@ -1,5 +1,5 @@
 
-
+<link rel="stylesheet" type="text/css" href="estilos/slideshow.css">
 <?php
 if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     session_start();
@@ -77,5 +77,5 @@ for($i=(count($sql)-1);$i>=0;$i--){
 </section>
 <br>
 <?php }}?>
-<link rel="stylesheet" type="text/css" href="estilos/slideshow.css">
-        <script src="scripts/slideshow.js"></script>
+
+<script src="scripts/slideshow.js"></script>

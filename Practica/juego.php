@@ -15,7 +15,7 @@
 
 
     include("head.php");
-    include("phpComponents/logo.php"); 
+    //include("phpComponents/logo.php"); 
    ?>
 
 

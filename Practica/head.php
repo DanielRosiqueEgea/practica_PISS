@@ -2,7 +2,10 @@
 <meta charset="UTF-8">
     <!--favicon--> 
 <link rel="icon" href="imagenes/Curva_del_dragón_formación.png" type="image/icon">
+
+<!--Estilos-->
 <link href="estilos/reset.css" rel="stylesheet">
+<link href="estilos/body.css" rel="stylesheet">
 <!--bootstrap y jquery-->
 <script src="scripts/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

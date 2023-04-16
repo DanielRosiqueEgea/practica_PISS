@@ -63,7 +63,7 @@
     
         <?php
           include("head.php");
-          include("phpComponents/logo.php"); 
+          //include("phpComponents/logo.php"); 
           include("phpComponents/topbar.php");
           //include("phpComponents/slideshow.php");
         
