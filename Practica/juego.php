@@ -61,7 +61,7 @@
                 // código para actualizar el contador en la página principal
                 var contador = document.getElementById('score');
                 var last_score = parseInt(contador.textContent.match(/\d+/)[0]);
-
+                
                 contador.textContent = \"Score: \" + score;
 
                 
