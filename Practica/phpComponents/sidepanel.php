@@ -1,20 +1,12 @@
 <script src="scripts/sidepanel.js"></script>
 <link href="estilos/sidepanel.css" rel="stylesheet">
+<nav id="mySidepanel" class="sidepanel d-flex justify-content-center">
 
-
-<nav id="mySidepanel" class="sidepanel">
 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
-        <nav class="busqueda">
-            <form action="catalogo.php" method="post">
-                <input type="text" placeholder="Busqueda.." name="nombre" required>
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </nav>
 
-        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Categorías <i
-                class="fa fa-caret-right"></i></a>
+        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Categorías <i class="fa fa-caret-right"></i></a>
 
         <span class="segundolvl">
             <?php include_once("funcionBBDD.php");
@@ -37,7 +29,7 @@
 
         </span>
 
-        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Consolas <i
+        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Plataformas <i
                 class="fa fa-caret-right"></i></a></li>
         <span class="segundolvl">
         <?php 
@@ -59,5 +51,15 @@
             
         </span>
         <a href="catalogo.php?all=1">Catalogo</a>
+
+        <a href="#">Acceso al foro</a>
+        <!--Que hacemos con el foro?-->
+
+        <nav class="busqueda">
+            <form action="catalogo.php" method="post">
+                <input type="text" placeholder="Busqueda.." name="nombre" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </nav>
         
     </nav>

@@ -1,11 +1,11 @@
 /* Set the width of the sidebar to 250px (show it) */
 function openNav() {
-    $("#mySidepanel").css("width", "250px");
+    $("#mySidepanel").css("height", "100px");
   }
   
   /* Set the width of the sidebar to 0 (hide it) */
   function closeNav() {
-    $("#mySidepanel").css("width" , "0");
+    $("#mySidepanel").css("height" , "0");
   }
 
 

@@ -1,16 +1,18 @@
 
 .sidepanel {
-  height: 100%; /* ocupa todo el alto de la pagina */
-  width: 0; /* el ancho se cambia con javascript */
-  position: fixed; /* queremos que se mantenga a la izquierda */
+  height: 0; /* el alto se cambia con javascript */
+  width: 100%; /* ocupa todo el ancho de la pagina */
+  /*position: fixed; /* queremos que se mantenga a la izquierda */
   z-index: 2; /* y que se muestre por encima de todo */
-  top: 0;
+  top: auto;
   left: 0;
-  background-color: #f1f1f1;
+  background-color: #F4F8FF;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
   overflow: scroll ; /*Desactivamos el scroll */
-  
+  display: flex;
   transition: 0.5s;
-  font-size: 25px;
+  font-size: 24px;
 }
 .sidepanel {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -22,11 +24,15 @@
 
 
 .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    color: rgb(203, 11, 30);
-    display: block;
-    transition: 0.2s;
+  padding: 5px 10px 5px 14px;
+  text-decoration: none;
+  color: #F4F8FF;
+  /* display: block; */
+  transition: 0.2s;
+  background-color: #FF8E3C;
+  border-radius: 38px;
+  margin: 29px 14px 28px 10px;
+    
   }
   
   /* para cambiarle el color cuando se hace hover */
@@ -35,9 +41,9 @@
     background-color: #111;
   }
   
-  
+  /*
   .sidepanel .closebtn {
-    /*position: absolute;/*La posicion del icono es a la izquierda y ocupa todo el espacio del sidepanel*/
+    position: absolute;/*La posicion del icono es a la izquierda y ocupa todo el espacio del sidepanel
     padding-right: 100%;
     padding-bottom: 0%;
     top: 0;
@@ -45,13 +51,16 @@
     font-size: 30px;
     margin-left: 0px;
   }
-  
+  */
 
 
 /*
 Dropdown dentro del sidepanel
 */
-
+.segundolvl{
+  display: none;
+  background-color: transparent;
+}
 .segundolvl a{ /*Para que los enlaces que haya en el segundo nivel se muevan un poco a la izquierda*/
     margin-left: 5%;
     padding-right: 5%;
@@ -60,10 +69,7 @@ Dropdown dentro del sidepanel
 .segundolvl a::before{ /* Para que se muestre la flecha antes de los enlaces del segundo nivel*/
   content: '\021D2';
 }
-.segundolvl{
-  display: none;
-  background-color: #e2e2e2;
-}
+
 .fa-caret-right {
   float: right;
   padding-right: 8px;
@@ -78,26 +84,39 @@ Dropdown dentro del sidepanel
 /* Boton de busqueda dentro del sidepanel*/
 
 .busqueda input[type=text] {
-  width: 55%;
-  height: 100%;
-  background-color: #f1f1f1;
-  padding: 5%;
-  margin-left: 10%;
-  font-size: 17px;
-  border: 1px solid black;
+  width: 57%;
+    height: 36px;
+    background-color: #f1f1f1;
+    padding: 16px 1px 17px 0px;
+    margin: 3px 0px 3px 17px;
+    font-size: 17px;
+    border: 1px solid black;
 }
 .busqueda button {
-  width: 15%;
-  padding: 5%;
- margin: 0%;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
+  width: 62px;
+    padding: 1px 0px 0px 42px;
+    margin: 0px -54px 0px -15px;
+    font-size: 23px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
 }
 
-@media screen and (max-width: 600px) {
- 
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
+/**Macario*/
+nav.busqueda {
+  /*Si lo quito no se aplica el naranja
+  background-color: #FF8E3C;*/
+  padding : 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
+nav.busqueda form {
+  display: flex;
+    align-items: center;
+    background-color: #FF8E3C;
+    border-radius: 50px;
+    padding: 0px 0px 0px 0px;
+    margin: 28px 0px 0px 21px;
+    width: 95%;
+    height: 46px;
+}
+
