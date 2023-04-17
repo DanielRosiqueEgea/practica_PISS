@@ -1,6 +1,9 @@
 <script src="scripts/sidepanel.js"></script>
 <link href="estilos/sidepanel.css" rel="stylesheet">
+
+
 <nav id="mySidepanel" class="sidepanel">
+
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
         <nav class="busqueda">

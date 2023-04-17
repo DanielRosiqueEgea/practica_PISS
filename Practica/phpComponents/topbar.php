@@ -9,7 +9,8 @@
 
 
 <nav class="navbar">
-    <a href="#" class="enlaceHover" id="topbarIzq" onclick="openNav()" ><i class="fa-solid fa-bars fa-2xl"  style="color: #000000; padding-left: 80px;"></i></a>
+    <!--Enlace a las opciones-->
+    <a href="#" class="enlaceHover" id="topbarIzq" onclick="openNav()" ><i class="fa-solid fa-bars fa-2xl" ></i></a>
     
     <!--Parte central-->
     <a href="index.php" class="mx-auto"> <img class="animada" onmouseover="animarFractal(this)" onmouseout="detenerFractal(this)" src="imagenes/fractalLogo.jpg" weight=100 height="100"></a> 
@@ -24,7 +25,7 @@
     ?>
 
     
-    <a href="#" class="split" ><i class="fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i></a> 
+    <a href="#" class="split"><i class="fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i></a> 
     <!--Falta el enlace hacia el perfil^-->
 
 
@@ -33,6 +34,12 @@
     
 </nav>
 
+<!--
+<nav class="navbar">
+    <!--Parte central->
+    <a href="index.php" class="mx-auto"> <img class="animada" onmouseover="animarFractal(this)" onmouseout="detenerFractal(this)" src="imagenes/fractalLogo.jpg" weight=100 height="100"></a> 
+</nav>
+-->
 
 <script>
 		function animarFractal(element) {
