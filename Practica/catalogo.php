@@ -3,9 +3,9 @@
 
 <head>
     <title>Fractal Games Catalogo</title>
-    
+   
     <?php 
-
+ include("head.php");
   //para volver al index si no se ha incluido parametro de busqueda
 //   if(!isset($_GET['genero']) && !isset($_GET['nombre']) && !isset($_GET['consola'])&& !isset($_GET['all'])){
 //       header("Location: index.php");
@@ -67,7 +67,7 @@
 <section id="mainContent">
     
         <?php
-          include("head.php");
+         
           //include("phpComponents/logo.php"); 
           include("phpComponents/topbar.php");
           include("phpComponents/formularioBusqueda.php");
@@ -97,6 +97,7 @@
                         echo "<section class=\"slideshow-container\">";
                     }
                     ?>
+                   
                     <article class="slide" itemscope itemtype="https://schema.org/Game">
                         <a href="juego.php?juego=<?=$juego->idJuego?>">
                             <?php
@@ -107,7 +108,8 @@
                      
                             <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
-                            <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
+                            <p class="precio" itemprop="price"><i class="fa-solid fa-heart"></i></p>
+                            <!-- <=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?> -->
                         </a>
                     </article>
                     
