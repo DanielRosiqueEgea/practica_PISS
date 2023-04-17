@@ -4,7 +4,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
         <nav class="busqueda">
-            <form action="catalogo.php" method="GET">
+            <form action="catalogo.php" method="post">
                 <input type="text" placeholder="Busqueda.." name="nombre" required>
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>

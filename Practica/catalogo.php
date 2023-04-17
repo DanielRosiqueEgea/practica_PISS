@@ -36,22 +36,27 @@
     $sql = $sql." WHERE TRUE ";
     if(isset($_POST["genero"])){
         $nombre = $_POST["genero"];
-        $sql = $sql. "AND";
+        $sql = $sql. "AND (";
     foreach($nombre as $genero){
         $sql = $sql. " generos.idGenero = \"".$genero."\" OR ";
     }
-        $sql = $sql. " FALSE ";
+        $sql = $sql. " FALSE )";
     }
     if(isset($_POST["consola"])){
         $nombre = $_POST["consola"];
-        $sql = $sql. "AND";
+        $sql = $sql. "AND (";
     foreach($nombre as $consola){
         $sql = $sql. " consolas.idConsola = \"".$consola."\" OR ";
     }
-        $sql = $sql. " FALSE";
+        $sql = $sql. " FALSE )";
+    }
+    if(isset($_POST['nombre'])){
+        echo "Busqueda por nombre";
+        $sql = $sql. " AND ";
+        $sql= $sql." v.nombreJuego LIKE '%".$_POST['nombre']."%'"; 
     }
 
-    
+    echo $sql;
 ?>     
 
      
@@ -65,7 +70,7 @@
           include("head.php");
           //include("phpComponents/logo.php"); 
           include("phpComponents/topbar.php");
-          //include("phpComponents/slideshow.php");
+          include("phpComponents/formularioBusqueda.php");
         
         
           include_once("phpComponents/funcionBBDD.php");
