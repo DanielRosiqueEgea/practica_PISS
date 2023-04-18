@@ -51,12 +51,10 @@
         $sql = $sql. " FALSE )";
     }
     if(isset($_POST['nombre'])){
-        echo "Busqueda por nombre";
         $sql = $sql. " AND ";
         $sql= $sql." v.nombreJuego LIKE '%".$_POST['nombre']."%'"; 
     }
 
-    echo $sql;
 ?>     
 
      
