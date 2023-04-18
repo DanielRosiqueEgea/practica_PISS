@@ -6,7 +6,7 @@
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="/Practica/registro.php" method="post">
+  <form class="modal-content animate" action="registro.php" method="post">
     <div class="containerRegistro">
       <label for="nickname"><b>Nickname</b></label>
       <input type="text" placeholder="Introduce usuario" name="nickname" required>
@@ -36,7 +36,7 @@
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/Practica/login.php" method="post">
+  <form class="modal-content animate" action="login.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="imagenes/img_avatar2.png" alt="Avatar" class="avatar">

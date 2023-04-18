@@ -19,7 +19,7 @@
     <!--Enlaces de sesion-->
     <?php if(isset($_SESSION['user'])){
         $funcion = "javascript:void(cerrarSesion())";
-         echo "<a href=\"#\" class=\"split\"><i class=\"fa-solid fa-circle-user fa-2xl\" style=\"color: #000000;\"></i></a> ";
+         echo "<a href=\"perfil.php\" class=\"split\"><i class=\"fa-solid fa-circle-user fa-2xl\" style=\"color: #000000;\"></i></a> ";
     }else{
         $funcion ="javascript:void(document.getElementById('id01').style.display='block')";
     }
