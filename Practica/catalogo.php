@@ -61,6 +61,13 @@
    
 </head>
 
+<style>
+
+form {
+    margin: 1px 43px;
+}
+</style>
+
 <body>
 <section id="mainContent">
     
