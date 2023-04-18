@@ -54,11 +54,13 @@
 
   /* Para el gif del logo */
 	.animada {
-    
 		transition: transform 0.3s ease-out;
+    margin: -29px 0px -26px 0px;
+    padding: 0px 0px 0px 0px;
 	}
 
 	.animada:hover {
 		transform: scale(1.1);
 	}
   
+ 
