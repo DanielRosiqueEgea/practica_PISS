@@ -54,36 +54,62 @@
             <span> </span>
         </div>
         </div>
+        
         <div class="col-md-5 border-right">
+        <form action="actualizarPerfil.php" method="post">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Datos del perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="first name" value="<?=$usuario->nombre?>"></div>
-                    <div class="col-md-6"><label class="labels">Apellidos</label><input type="text" class="form-control" value="<?=$usuario->apellidos?>" placeholder="surname"></div>
+                    <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="first name" value="<?=$usuario->nombre?>" required></div>
+                    <div class="col-md-6"><label class="labels">Apellidos</label><input type="text" class="form-control" value="<?=$usuario->apellidos?>" placeholder="surname" required></div>
                     
                 </div>
                 
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Contraseña actual</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                    <div class="col-md-6"><label class="labels">Contraseña actual</label><input type="password" class="form-control" placeholder="*****" value="" required></div>
+                    <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input type="password" class="form-control" value="" placeholder="*****" required></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
+            </form>
         </div>
+        
         <div class="col-md-4">
             <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                <div class="d-flex justify-content-between align-items-center experience"><span>Juegos Favoritos</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Juego</span></div><br>
+                <?php 
+                  $sql_favs= "SELECT `videojuegos`.*, `favoritos`.*, `usuarios`.* FROM `videojuegos` LEFT JOIN `favoritos` ON `favoritos`.`idJuego` = `videojuegos`.`idJuego` LEFT JOIN `usuarios` ON `favoritos`.`idUsuario` = `usuarios`.`idUsuario` WHERE`usuarios`.`idUsuario`=\"".$_SESSION['user']."\"";
+                  $resultado = peticionSQL($sql_favs,$link);
+                  if(mysqli_num_rows($resultado)>=1){
+                    while ($juego = mysqli_fetch_object($resultado)) {
+                ?>
+                <div class="row">
+                    <div class="col-md-8"><?=$juego->nombreJuego?></div>
+        
+                    <div class="col-md-4"><button onclick="quitarFav(<?=$juego->idJuego?>)" class="btn btn-primary profile-button" ><i class="fa fa-minus" aria-hidden="true"></i></button></div>
+                </div>
+                <?php
+                    }    
+            }else{
+                    echo "<div class=\"class-md-6\">No tienes juegos favoritos";
+                } ?>
             </div>
         </div>
     </div>
 </div>
 </div>
 </div>
+   
 <?php 
     }
 include("phpComponents/footer.php");?>
+
+<script>
+    
+        function quitarFav(idJuego) {
+            window.location = "favoritos.php?idJuego=" + idJuego + "&accion=quitar";
+        }
+    </script>
 </body>
