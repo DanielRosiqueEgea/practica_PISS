@@ -62,14 +62,14 @@
                     <h4 class="text-right">Datos del perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="first name" value="<?=$usuario->nombre?>" required></div>
-                    <div class="col-md-6"><label class="labels">Apellidos</label><input type="text" class="form-control" value="<?=$usuario->apellidos?>" placeholder="surname" required></div>
+                    <div class="col-md-6"><label class="labels">Nombre</label><input name="nombre" type="text" class="form-control" placeholder="first name" value="<?=$usuario->nombre?>" required></div>
+                    <div class="col-md-6"><label class="labels">Apellidos</label><input name="apellidos" type="text" class="form-control" value="<?=$usuario->apellidos?>" placeholder="surname" required></div>
                     
                 </div>
                 
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Contraseña actual</label><input type="password" class="form-control" placeholder="*****" value="" required></div>
-                    <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input type="password" class="form-control" value="" placeholder="*****" required></div>
+                    <div class="col-md-6"><label class="labels">Contraseña actual</label><input name="oldpass" type="password" class="form-control" placeholder="*****" value="" required></div>
+                    <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input name="newpass" type="password" class="form-control" value="" placeholder="*****" required></div>
                 </div>
                 <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
