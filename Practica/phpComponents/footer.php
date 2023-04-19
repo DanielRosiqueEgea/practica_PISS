@@ -12,11 +12,8 @@
     .animada-hover {
   color: #ff6ec7; /* Cambiar por el color rosa neon deseado */
 }
-
-.active:hover{
-  
-}
 </style>
+
 <script>
 		function animar(element) {
 			element.setAttribute('src',"imagenes/transparent_logo.gif");
@@ -72,7 +69,7 @@
           <!--Grid column-->
           <div class="col-auto">
             <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
+              <strong>Suscríbete a nuestro boletín</strong>
             </p>
           </div>
           <!--Grid column-->
@@ -82,7 +79,7 @@
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
               <input type="email" id="form5Example21" class="form-control" />
-              <label class="form-label" for="form5Example21">Email address</label>
+              <label class="form-label" for="form5Example21">Dirección email</label>
             </div>
           </div>
           <!--Grid column-->
@@ -91,7 +88,7 @@
           <div class="col-auto">
             <!-- Submit button -->
             <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
+              Suscríbete
             </button>
           </div>
           <!--Grid column-->
@@ -104,65 +101,14 @@
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      ¡Únete a la comunidad de millones de jugadores de todo el mundo que aman nuestra plataforma de juegos en línea! Ofrecemos la tecnología de juego más avanzada para que puedas sumergirte en emocionantes juegos, conectarte con otros jugadores y competir en torneos en línea. Además, te mantendremos al día con las últimas noticias de juegos, lanzamientos y promociones a través de nuestro boletín y nuestras redes sociales. Nos encantaría que te unas a la comunidad y compartas tus aventuras de juego con el resto del mundo.
       </p>
     </section>
     <!-- Section: Text -->
-
-    <!-- Section: Links -->
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <ul class="list-unstyled mb-0">
+          <div class="d-flex justify-content-center align-items-center">
           <img class="animada" onmouseover="animar(this)" onmouseout="detener(this)" src="imagenes/bandidosBinarios-removebg-preview.png" weight=70 height="70">
-          </ul>
+          </div>
         </div>
         <!--Grid column-->
       </div>
@@ -175,7 +121,7 @@
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgb(60, 60, 60)">
     © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <a class="text-white" href="https://mdbootstrap.com/">Fractal Games</a>
   </div>
   <!-- Copyright -->
 </footer>
