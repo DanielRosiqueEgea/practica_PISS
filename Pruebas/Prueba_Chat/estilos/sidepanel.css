@@ -1,0 +1,146 @@
+
+.sidepanel {
+  height: 0; /* el alto se cambia con javascript */
+  width: 100%; /* ocupa todo el ancho de la pagina */
+  /*position: fixed; /* queremos que se mantenga a la izquierda */
+  z-index: 2; /* y que se muestre por encima de todo */
+  top: auto;
+  left: 0;
+  background-color: #F4F8FF;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  overflow: hidden ; /*Desactivamos el scroll */
+  display: flex;
+  transition: 0.5s;
+  font-size: 24px;
+}
+.sidepanel {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.sidepanel::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+
+.sidepanel a {
+  padding: 5px 10px 5px 14px;
+  text-decoration: none;
+  color: #F4F8FF;
+  /* display: block; */
+  transition: 0.2s;
+  background-color: #FF8E3C;
+  border-radius: 38px;
+  margin: 29px 14px 28px 10px;
+    
+
+  /**/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+  
+  /* para cambiarle el color cuando se hace hover */
+  .sidepanel a:hover, .active {
+    color: #FF8E3C;
+    background-color: #F4F8FF;
+    border: 1px solid #FF8E3C;
+  }
+
+
+
+/*
+Dropdown dentro del sidepanel
+*/
+.segundolvl{
+  display: none;
+  background-color: transparent;
+  max-height: 200px; /* altura máxima de la lista */
+  overflow-y: scroll; /* añade scroll vertical */
+  overflow-x: hidden;
+}
+.segundolvl a{ /*Para que los enlaces que haya en el segundo nivel se muevan un poco a la izquierda*/
+   
+  padding: 5px 10px 5px 14px;
+  text-decoration: none;
+  color: #F4F8FF;
+  /* display: block; */
+  transition: 0.2s;
+  background-color: #FF8E3C;
+  border-radius: 38px;
+  margin: 29px 14px 28px 10px;
+/**/
+  max-height: 200px; /* altura máxima de la lista */
+  overflow-y: scroll; /* añade scroll vertical */
+}
+
+.segundolvl a::before{ /* Para que se muestre la flecha antes de los enlaces del segundo nivel*/
+  content: '\021D2';
+}
+
+.fa-caret-right {
+  float: right;
+  padding-right: 8px;
+  transition: 0.5s;
+}
+.caret_down{
+  transform: rotate(90deg);
+  margin: 2px -35px 0px -13px;
+  padding: 0px 71px 0px 7px;
+  transition: 0.5s;
+}
+
+/* Boton de busqueda dentro del sidepanel*/
+
+.busqueda input[type=text] {
+  width: 57%;
+    height: 36px;
+    background-color: #f1f1f1;
+    padding: 16px 1px 17px 0px;
+    margin: 3px 0px 3px 17px;
+    font-size: 17px;
+    border: 1px solid black;
+}
+.busqueda button {
+  width: 62px;
+    padding: 1px 0px 0px 42px;
+    margin: 0px -54px 0px -15px;
+    font-size: 23px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/**Macario*/
+nav.busqueda {
+  /*Si lo quito no se aplica el naranja
+  background-color: #FF8E3C;*/
+  padding : 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+nav.busqueda form {
+  display: flex;
+    align-items: center;
+    background-color: #FF8E3C;
+    border-radius: 50px;
+    padding: 0px 0px 0px 0px;
+    margin: 28px 0px 0px 21px;
+    width: 95%;
+    height: 46px;
+}
+
+
+a i{
+  margin: 7px 0px 6px 12px;
+}
+
+.enlaceCatalogo{
+  padding: 4px 0px 0px 4px;
+  text-decoration: none;
+  color: #F4F8FF;
+  /* display: block; */
+  transition: 0.2s;
+  background-color: #FF8E3C;
+  border-radius: 38px;
+  margin: 29px 8px 0px 0px;
+}

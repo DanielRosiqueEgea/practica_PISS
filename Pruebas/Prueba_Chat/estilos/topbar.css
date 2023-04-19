@@ -1,0 +1,66 @@
+
+
+/* Create a top navigation bar with a black background color  */
+
+/* He modificado todos los .topnav por .navbar para así utilizar bootstrap mas facil  */
+@media screen and (max-width: 600px) {
+    .navbar a.split {display: none;}
+    
+  }
+  
+  
+.navbar {
+    background-color: #F4FEFF;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  /*.topnav a,*/ .navbar button {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .navbar a.enlaceHover:hover {
+    background-color: #ddd;
+    color: #FF8E3C;
+  }
+
+/*
+  .navbar a.split:hover{
+    background-color: #ccd3d4;
+    color: black;
+  }
+*/
+  /* Create a right-aligned (split) link inside the navigation bar */
+  .navbar a.split {
+    padding: 20px;
+  }
+
+  .navbar a.enlaceHover{
+    color: #000000;
+    padding: 20px;
+  }
+
+
+  /* Para el gif del logo */
+	.animada {
+		transition: transform 0.3s ease-out;
+    margin: -29px 0px -26px 0px;
+    padding: 0px 0px 0px 0px;
+	}
+
+	.animada:hover {
+		transform: scale(1.1);
+	}
+  
+ 
