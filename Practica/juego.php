@@ -248,7 +248,7 @@
                 <?= $display_puntuacion ?>
 
 
-                <iframe src="<?= $juego->trailer ?>" width="100%" height="750"></iframe>
+                <iframe src="<?= $juego->urlJuego ?>" width="100%" height="750"></iframe>
                 <script>
                 console.log("Hola")
                 <?=$actualizar_puntuacion?>
