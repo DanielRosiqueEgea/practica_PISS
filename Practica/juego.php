@@ -35,6 +35,14 @@
     $ocultar_juego = "document.getElementsByClassName('videoContainer')[0].innerHTML = '<h2>TIENES QUE INICIAR SESION PARA JUGAR</h2>'";
     $actualizar_puntuacion ="";
     $display_puntuacion = "";
+
+    $duracion = array(
+        "1" =>"Corta",
+        "2" =>"Media",
+        "3" => "Larga",
+        "4" => "Muy Larga"
+    );
+
     if (isset($_SESSION['user'])) {
 
         $sql_fav = "SELECT * FROM FAVORITOS WHERE idJuego=" . $_GET['juego'] . " && idUsuario=" . $_SESSION['user'];
@@ -146,7 +154,7 @@
                     while ($imagen = mysqli_fetch_object($qry_imagenes)) { ?>
 
                         <div class="carousel-item <?= $j == 0 ? "active" : "" ?>">
-                            <img src="imagenes/<?= $imagen->urlImagen ?>" class="imgJuegoPhp" alt="slide<?= $j ?>">
+                            <img src="<?= $imagen->urlImagen ?>" class="imgJuegoPhp" alt="slide<?= $j ?>">
                         </div>
                         <?php $j++;
                     } ?>
@@ -166,7 +174,7 @@
                 ?>
             </div>
             <h2 style="float: left; width: 50%;"><?= $juego->nombreJuego ?></h2>
-            <h3 style="display:block">Precio: <?= $juego->precioJuego ?>€</h3>
+            <h3 style="display:block">Duración: <?=$duracion[$juego->duracion]?></h3>
             <p class="descriptionContainer"> <br><?= $juego->descripcionJuego ?>
             </p>
         </article>
@@ -232,7 +240,7 @@
         <article class="videoContainer">
         
 
-            <?php if ($juego->trailer != "not available") { ?>
+            <?php if ($juego->urlJuego != "not available") { ?>
 
 
                 <h2 style="display: inline;" id="score">Score: 0</h2>

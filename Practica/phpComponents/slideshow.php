@@ -18,7 +18,7 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 }
 $generoQueSeMuestra = rand(0,$contador_Genero);                 
 $sql = array(
-    "1"=> "SELECT * FROM videojuegos WHERE OFERTA = 1",
+    "1"=> "SELECT * FROM videojuegos WHERE ROTACION = 1",
 "0" => "SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.nombreGenero=\"".$generos[$generoQueSeMuestra]."\""
 );
 
@@ -26,6 +26,13 @@ if(isset($_SESSION['user'])){
     $sql["2"]= "SELECT `videojuegos`.*, `favoritos`.*, `usuarios`.* FROM `videojuegos` LEFT JOIN `favoritos` ON `favoritos`.`idJuego` = `videojuegos`.`idJuego` LEFT JOIN `usuarios` ON `favoritos`.`idUsuario` = `usuarios`.`idUsuario` WHERE`usuarios`.`nickname`=\"".$_SESSION['Usuario']."\"";
     
 }
+
+$duracion = array(
+    "1" =>"Corta",
+    "2" =>"Media",
+    "3" => "Larga",
+    "4" => "Muy Larga"
+);
 
 for($i=(count($sql)-1);$i>=0;$i--){
 ?>
@@ -38,7 +45,7 @@ for($i=(count($sql)-1);$i>=0;$i--){
                 ?>
             <section class="slideshow-container">
                 <article>
-                        <h2 class="tituloCat"><?php if($i==1)echo "Ofertas";
+                        <h2 class="tituloCat"><?php if($i==1)echo "Rotación";
                         elseif($i==2) echo "Favoritos"; else echo ($generos[$generoQueSeMuestra]); ?></h2>
                 </article>
                 <?php if(mysqli_num_rows($resultado)>4){ ?>
@@ -62,7 +69,8 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <!-- onerror="this.src='imagenes/img_not_found.webp';" -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
-                            <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
+                            
+                            <p class="precio" itemprop="duration"><?=$duracion[$juego->duracion]?></p>
                         </a>
                     </article>
                     <?php } if(mysqli_num_rows($resultado)>4){?>
