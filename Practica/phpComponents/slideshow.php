@@ -5,22 +5,18 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     session_start();
 }
 include_once("funcionBBDD.php"); 
-                    $dblink = db_connect();
+$dblink = db_connect();
                     //queremos que el de ofertas salga si o si, pero el genero queremos que sea aleatorio 
                     //el problema
-$generos = array(
-    0 => "Accion",
-    1 =>  "Terror",
-    2 => "Romance",
-    3  =>"Aventura",
-    4 => "Hack and Slash",
-    5 => "Gore",
-    6=> "Rogue like",
-    7 =>"Shooters",
-    8 => "Free to Play",
-    9 => "MOBA"
-);   
-$generoQueSeMuestra = rand(0,9);                 
+
+$resultado = peticionSQL("SELECT * FROM generos", $dblink);
+$generos = array();
+$contador_Genero  = 0;
+while ($fila = mysqli_fetch_assoc($resultado)) {
+    $generos[$contador_Genero] = $fila['nombreGenero'];
+    $contador_Genero+=1;
+}
+$generoQueSeMuestra = rand(0,$contador_Genero);                 
 $sql = array(
     "1"=> "SELECT * FROM videojuegos WHERE OFERTA = 1",
 "0" => "SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.nombreGenero=\"".$generos[$generoQueSeMuestra]."\""
@@ -63,7 +59,7 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             ?>
 
                      
-                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                            <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <!-- onerror="this.src='imagenes/img_not_found.webp';" -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
                             <p class="precio" itemprop="price"><?=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?></p>
