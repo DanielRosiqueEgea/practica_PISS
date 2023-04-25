@@ -30,7 +30,7 @@
 
     
     // include("../../Practica/head.php");
-    $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.precioJuego FROM videojuegos AS v";
+    $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.duracion FROM videojuegos AS v";
     $sql = $sql. " LEFT JOIN generosjuego ON generosjuego.idJuego = v.idJuego LEFT JOIN generos ON generosjuego.idGenero = generos.idGenero"; 
     $sql = $sql." LEFT JOIN consolajuego ON v.idJuego = consolajuego.idJuego LEFT JOIN consolas ON consolajuego.idConsola = consolas.idConsola";
     $sql = $sql." WHERE TRUE ";
@@ -111,7 +111,7 @@ form {
                             ?>
 
                      
-                            <img  itemprop="image" src="imagenes/<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                            <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
                             <p class="precio" itemprop="price"><i class="fa-solid fa-heart"></i></p>
                             <!-- <=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?> -->

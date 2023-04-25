@@ -174,7 +174,12 @@
                 ?>
             </div>
             <h2 style="float: left; width: 50%;"><?= $juego->nombreJuego ?></h2>
-            <h3 style="display:block">Duración: <?=$duracion[$juego->duracion]?></h3>
+            <?php if(!isset($duracion[$juego->duracion])){
+                $iconoDuracion ="No disponible";
+            }else{
+                $iconoDuracion =$duracion[$juego->duracion];
+            } ?>
+            <h3 style="display:block">Duración: <?=$iconoDuracion?></h3>
             <p class="descriptionContainer"> <br><?= $juego->descripcionJuego ?>
             </p>
         </article>

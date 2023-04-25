@@ -16,7 +16,7 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
     $generos[$contador_Genero] = $fila['nombreGenero'];
     $contador_Genero+=1;
 }
-$generoQueSeMuestra = rand(0,$contador_Genero);                 
+$generoQueSeMuestra = rand(0,$contador_Genero-1);                 
 $sql = array(
     "1"=> "SELECT * FROM videojuegos WHERE ROTACION = 1",
 "0" => "SELECT generos.*, generosjuego.*, videojuegos.* FROM generos LEFT JOIN generosjuego ON generosjuego.idGenero = generos.idGenero LEFT JOIN videojuegos ON generosjuego.idJuego = videojuegos.idJuego WHERE generos.nombreGenero=\"".$generos[$generoQueSeMuestra]."\""
@@ -69,8 +69,12 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <!-- onerror="this.src='imagenes/img_not_found.webp';" -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
-                            
-                            <p class="precio" itemprop="duration"><?=$duracion[$juego->duracion]?></p>
+                            <?php if(!isset($duracion[$juego->duracion])){
+                             $iconoDuracion ="No disponible";
+                             }else{
+                                 $iconoDuracion =$duracion[$juego->duracion];
+                             } ?>
+                            <p class="precio" itemprop="duration"><?=$iconoDuracion?></p>
                         </a>
                     </article>
                     <?php } if(mysqli_num_rows($resultado)>4){?>
