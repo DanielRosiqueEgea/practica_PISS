@@ -4,24 +4,15 @@
     <i class="fa fa-comments" aria-hidden="true"></i>
     <div class="chat">
         <div class="header">
-            <span class="title">
-                what's on your mind?
-            </span>
+             <span><button class="cambiarUsaurio" value="3">Usuario 3 </button> </span> 
+             <span><button class="cambiarUsaurio" value="4">Usuario 4 </button> </span> 
             <button>
                 <i class="fa fa-times" aria-hidden="true"></i>
             </button>
                          
         </div>
         <ul class="messages">
-            <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
-            <li class="other">Are we dogs??? 🐶</li>
-            <li class="self">no... we're human</li>
-            <li class="other">are you sure???</li>
-            <li class="self">yes.... -___-</li>
-            <li class="other">if we're not dogs.... we might be monkeys 🐵</li>
-            <li class="self">i hate you</li>
-            <li class="other">don't be so negative! here's a banana 🍌</li>
-            <li class="self">......... -___-</li>
+           
         </ul>
         <div class="footer">
             <div class="text-box" contenteditable="true" disabled="true"></div>
@@ -29,5 +20,18 @@
         </div>
     </div>
 </div>
+<?php 
 
+$user_id = null;
+if(isset($_SESSION['user'])){
+$user_id = $_SESSION['user'];
+}
+$otherUser = $user_id==1?3:1;
+
+// Crear una variable JavaScript con el ID de usuario
+echo "<script>var userId = " . $user_id . ";
+var otherUser = ".$otherUser."
+</script>";
+
+?>
 <script src="chat.js"></script>

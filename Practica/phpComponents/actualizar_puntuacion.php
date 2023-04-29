@@ -1,5 +1,12 @@
 <?php
 // obtener los parámetros enviados por AJAX
+if (!headers_sent() && '' == session_id()) {
+    session_start();
+}
+if(!isset( $_POST['idJuego']) || !isset( $_POST['idUsuario']) || !isset( $_POST['puntuacion'])){
+    echo 0;
+    exit;
+}
 $idJuego = $_POST['idJuego'];
 $idUsuario = $_POST['idUsuario'];
 $puntuacion = $_POST['puntuacion'];

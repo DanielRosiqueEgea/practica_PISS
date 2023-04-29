@@ -10,7 +10,8 @@ setTimeout(function() {
 }, 1000);
 
 element.click(openElement);
-
+var messagesContainer = $('.messages');
+var oldMessages = "";
 function openElement() {
     var messages = element.find('.messages');
     var textInput = element.find('.text-box');
@@ -53,14 +54,23 @@ function createUUID() {
     return uuid;
 }
 
+
+$('.text-box').keydown(function(e) {
+    if (e.keyCode == 13) {
+      sendNewMessage();
+    }
+  });
+
 function sendNewMessage() {
     var userInput = $('.text-box');
-    var newMessage = userInput.html().replace(/\<div\>|\<br.*?\>/ig, '\n').replace(/\<\/div\>/g, '').trim().replace(/\n/g, '<br>');
-
+    // var newMessage = userInput.html().replace(/\<div\>|\<br.*?\>/ig, '\n').replace(/\<\/div\>/g, '').trim().replace(/\n/g, '<br>');
+    var newMessage = userInput[0].innerText.trim().replace(/\n/g, '<br>');
     if (!newMessage) return;
 
-    var messagesContainer = $('.messages');
-
+    oldMessages.push({
+        type: "self",
+        text: newMessage
+      });
     messagesContainer.append([
         '<li class="self">',
         newMessage,
@@ -72,9 +82,25 @@ function sendNewMessage() {
     // focus on input
     userInput.focus();
 
-    messagesContainer.finish().animate({
-        scrollTop: messagesContainer.prop("scrollHeight")
-    }, 250);
+    // messagesContainer.finish().animate({
+    //     scrollTop: messagesContainer.prop("scrollHeight")
+    // }, 250);
+
+    $.ajax({
+        url: 'sendMessage.php',
+        method: 'POST',
+        data: {
+            otherUser: otherUser,
+            text: newMessage
+        },
+        success: function(response) {
+            console.log('Mensaje enviado correctamente');
+        },
+        error: function(xhr, status, error) {
+            console.log('Error al enviar el mensaje');
+            console.log(xhr.responseText);
+        }
+    });
 }
 
 function onMetaAndEnter(event) {
@@ -82,3 +108,39 @@ function onMetaAndEnter(event) {
         sendNewMessage();
     }
 }
+
+function loadMessages() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'getMessages.php?otherUser='+otherUser);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        var messages = JSON.parse(xhr.responseText);
+        updateChat(messages);
+      }
+    };
+    xhr.send();
+  }
+
+  function updateChat(messages) {
+    if(JSON.stringify(messages) === JSON.stringify(oldMessages)){
+        console.log("los mensajes son los mismos que antes");
+        return;
+    }
+    oldMessages=messages;
+    messagesContainer.empty();
+    messages.forEach(function(message) {
+        var newMessage = message.text.trim().replace(/\n/g, '<br>');
+      messagesContainer.append([
+        '<li class="' + message.type + '">',
+        newMessage,
+        '</li>'
+      ].join(''));
+    });
+    messagesContainer.finish().animate({
+      scrollTop: messagesContainer.prop("scrollHeight")
+    }, 250);
+  }
+
+  messagesContainer.empty();
+  messagesContainer.append("<li>Cargando el chat, por favor espere...</li>")
+  setInterval(loadMessages, 1000);
