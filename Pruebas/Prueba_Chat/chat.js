@@ -82,9 +82,7 @@ function sendNewMessage() {
     // focus on input
     userInput.focus();
 
-    // messagesContainer.finish().animate({
-    //     scrollTop: messagesContainer.prop("scrollHeight")
-    // }, 250);
+    
 
     $.ajax({
         url: 'sendMessage.php',
@@ -101,6 +99,10 @@ function sendNewMessage() {
             console.log(xhr.responseText);
         }
     });
+
+    messagesContainer.finish().animate({
+      scrollTop: messagesContainer.prop("scrollHeight")
+  }, 250);
 }
 
 function onMetaAndEnter(event) {
@@ -142,7 +144,7 @@ function loadMessages() {
         '</li>'
       ].join(''));
     });
-    messagesContainer.finish().animate({
+    $(messagesContainer).finish().animate({
       scrollTop: messagesContainer.prop("scrollHeight")
     }, 250);
   }

@@ -4,6 +4,9 @@
 <head>
     <title>Fractal Games Juego</title>
     <?php
+     if (!headers_sent() && '' == session_id()) {
+        session_start();
+    }
     include("head.php");
    ?>
 

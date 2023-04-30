@@ -8,6 +8,7 @@ if (!isset($_GET['juego'])) {
     exit;
 }
 
+
 include_once("phpComponents/funcionBBDD.php");
 $link = db_Connect();
 
@@ -20,7 +21,11 @@ $link = db_Connect();
 
         <!--Vista del juego-->
         <article class="videoContainer">
-        
+       <?php
+        if(!isset($_SESSION['user'])){
+            echo "<h2>TIENES QUE INICIAR SESiÓN PARA JUGAR</h2>";
+        exit;
+            }?>
 
             <?php
             $sql_juego = "SELECT * FROM videojuegos WHERE idJuego =\"" . $_GET['juego'] . "\"";

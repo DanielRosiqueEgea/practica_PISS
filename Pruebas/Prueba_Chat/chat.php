@@ -43,7 +43,7 @@
 </div>
 <?php 
 
-$user_id = null;
+$user_id = 0;
 
 if(isset($_SESSION['user'])){
 $user_id = $_SESSION['user'];
@@ -52,7 +52,7 @@ $otherUser = 0;
 
 // Crear una variable JavaScript con el ID de usuario
 echo "<script>var userId = " . $user_id . ";
-var otherUser = ".$otherUser."
+var otherUser = ".$otherUser.";
 </script>";
 
 ?>
