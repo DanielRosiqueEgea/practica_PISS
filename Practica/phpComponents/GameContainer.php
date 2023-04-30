@@ -77,7 +77,7 @@ $link = db_Connect();
         window.addEventListener('message', function (event) {
             // verificar si el mensaje es del tipo 'scoreUpdate'
             if (event.data.type === 'scoreUpdate') {
-                console.log("SE ACTUALIZA LA PUNTUACION");
+                // console.log("SE ACTUALIZA LA PUNTUACION");
 
                 // actualizar el contador con el valor enviado por la página dentro del iframe
                 var score = event.data.score;
@@ -106,7 +106,7 @@ $link = db_Connect();
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         if (last_score > score) {
             score = score - last_score;
-            console.log("Ha disminuido tu puntuacion en: " + score + " Puntos");
+            // console.log("Ha disminuido tu puntuacion en: " + score + " Puntos");
         }
 
         xmlhttp.send("idJuego=<?=$_GET['juego']?>&idUsuario=<?=$_SESSION['user']?>&puntuacion=" + score);

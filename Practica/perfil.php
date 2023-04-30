@@ -47,11 +47,11 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>">
             <span class="font-weight-bold"><?=$usuario->nickname?></span>
             <span class="text-black-50"><?=$usuario->email?></span>
             <span class="text-black-50"><?=$usuario->fechaNac?></span>
-            <span> </span>
+            
         </div>
         </div>
         
@@ -70,6 +70,7 @@
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Contraseña actual</label><input name="oldpass" type="password" class="form-control" placeholder="*****" value="" required></div>
                     <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input name="newpass" type="password" class="form-control" value="" placeholder="*****" required></div>
+                    <div class="col-md-12"><label class="labels">urlFotoPerfil</label><input name="fotoPerfil" type="url" class="form-control" value="<?=$usuario->fotoPerfil?>" required></div>
                 </div>
                 <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>

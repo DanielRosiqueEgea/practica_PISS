@@ -190,10 +190,20 @@
 	 margin-right: 45px;
 	 color: #0ad5c1;
 }
- .floating-chat .chat .messages li.other:before {
+ /* .floating-chat .chat .messages li.other:before {
 	 right: -45px;
-	 background-image: url(https://github.com/Thatkookooguy.png);
-}
+	 background-image: url(https://cdn-icons-png.flaticon.com/512/3135/3135715.png); 
+} */
+
+.messages li.other .user-avatar {
+	position: absolute;
+	top: 0;
+	right: -45px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+  }
+
  .floating-chat .chat .messages li.other:after {
 	 border-right: 10px solid transparent;
 	 right: -10px;
@@ -206,10 +216,20 @@
 	 margin-left: 45px;
 	 color: #0ec879;
 }
- .floating-chat .chat .messages li.self:before {
+ /* .floating-chat .chat .messages li.self:before {
 	 left: -45px;
-	 background-image: url(https://github.com/ortichon.png);
-}
+	 background-image: url(https://cdn-icons-png.flaticon.com/512/3135/3135715.png);
+} */
+.messages li.self .user-avatar{
+	position: absolute;
+	top: 0;
+	left: -45px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+  }
+  
+
  .floating-chat .chat .messages li.self:after {
 	 border-left: 10px solid transparent;
 	 left: -10px;

@@ -27,7 +27,7 @@ if(!isset($_SESSION['user'])){
             $userId = $row->idUsuario;
             $userName = $row->nickname;
             
-            echo "<button class=\"user-button\" value=\"".$userId."\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i>".$userName." </button> ";
+            echo "<button class=\"user-button\" data-id=\"".$userId."\" ><i class=\"fa fa-user\" aria-hidden=\"true\"></i>".$userName." </button> ";
         }
     ?>
          
@@ -71,12 +71,17 @@ const cambiarUsuarioBtns = document.querySelectorAll(".user-button");
 for (let i = 0; i < cambiarUsuarioBtns.length; i++) {
   const btn = cambiarUsuarioBtns[i];
   // obtiene el valor de la propiedad "value" del botón
-  const usuario = btn.value;
+  const usuario = btn.dataset.id;
+  
   btn.onclick = function() {
     // función a ejecutar al hacer clic en el botón
     console.log("Se ha seleccionado el usuario: " + usuario);
+   
+
+
     otherUser= usuario;
     // aquí puedes añadir la lógica necesaria para cambiar de usuario
   }
-}</script>
+}
+</script>
 <script src="scripts/chat.js"></script>

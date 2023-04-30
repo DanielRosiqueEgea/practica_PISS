@@ -138,11 +138,24 @@ function loadMessages() {
     messagesContainer.empty();
     messages.forEach(function(message) {
         var newMessage = message.text.trim().replace(/\n/g, '<br>');
-      messagesContainer.append([
+
+        
+ messagesContainer.append([
         '<li class="' + message.type + '">',
+        "<img class=\"user-avatar\" src=\""+message.url+"\"></img>",
         newMessage,
         '</li>'
       ].join(''));
+
+
+      // messagesContainer.append([
+      //   '<li class="' + message.type + '">',
+      //   "<img class=\"user-avatar\" src=\"https://cdn-icons-png.flaticon.com/512/3135/3135715.png\"></img>",
+      //   newMessage,
+      //   '</li>'
+      // ].join(''));
+
+
     });
 
     messagesContainer.finish().animate({
