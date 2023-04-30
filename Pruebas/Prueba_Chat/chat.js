@@ -21,7 +21,7 @@ function openElement() {
     var strLength = textInput.val().length * 2;
     textInput.keydown(onMetaAndEnter).prop("disabled", false).focus();
     element.off('click', openElement);
-    element.find('.header button').click(closeElement);
+    element.find('.header .close-button').click(closeElement);
     element.find('#sendMessage').click(sendNewMessage);
     messages.scrollTop(messages.prop("scrollHeight"));
 }
@@ -111,6 +111,12 @@ function onMetaAndEnter(event) {
 
 function loadMessages() {
     var xhr = new XMLHttpRequest();
+    if(otherUser==0){
+      messagesContainer.empty();
+      messagesContainer.append("<li>Por favor, selecione un chat</li>")
+      return;
+    }
+    console.log("TU eres: "+userId+ " QUieres hablar con: "+ otherUser);
     xhr.open('GET', 'getMessages.php?otherUser='+otherUser);
     xhr.onload = function() {
       if (xhr.status === 200) {
@@ -123,7 +129,7 @@ function loadMessages() {
 
   function updateChat(messages) {
     if(JSON.stringify(messages) === JSON.stringify(oldMessages)){
-        console.log("los mensajes son los mismos que antes");
+        
         return;
     }
     oldMessages=messages;
