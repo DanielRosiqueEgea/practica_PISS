@@ -1,8 +1,8 @@
-.tituloCat, .slideshow-container, .slide {box-sizing: border-box}
+#mainContent .tituloCat, .slideshow-container, .slide {box-sizing: border-box}
 /* medium and up screens */
 
 
-.tituloCat{
+#mainContent .tituloCat{
     font-size: 25px;
     text-align:center;
     width: 150px;
@@ -17,7 +17,7 @@
 }
 
 /* Slideshow container */
-.slideshow-container {
+#mainContent .slideshow-container {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 1%;
@@ -25,7 +25,7 @@
   transition: 0.3s;
 }
 
-.slide {
+#mainContent .slide {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 20%;
   height: 20%;
@@ -35,7 +35,7 @@
   background-color: #F4F8FF;
   float: left;
 }
-.precio{
+#mainContent .precio{
   border: none;
   outline: 0;
   padding: 12px;
@@ -46,45 +46,45 @@
   width: 100%;
   font-size: 18px;
 }
-.precio:hover{
+#mainContent .precio:hover{
   background-color: #333;
   color: #e3e3e3;
 }
-.slide img {
+#mainContent .slide img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
-.slide img:hover{
+#mainContent .slide img:hover{
     opacity: 0.7;
 }
-.slide a{
+#mainContent .slide a{
   text-decoration: none;
   color: black;
 }
 
-.slideBtnPrev{
+#mainContent .slideBtnPrev{
   cursor: pointer;
   float:left;
   margin-top:15%;
   position:absolute;
 }
-.slideBtnNext{
+#mainContent .slideBtnNext{
   cursor: pointer;
   margin-left:75%;
   margin-top:15%;
   position:absolute;
 }
 
-.next{
+#mainContent .next{
   border-radius: 0 3px 3px 0;
 }
-.prev{
+#mainContent .prev{
   
   border-radius: 3px 0 0 3px;
 }
 
-.prev, .next{
+#mainContent .prev, .next{
   padding: 16px;
   background-color: #f2f2f2;
   margin-right: 5%;
@@ -95,14 +95,14 @@
 }
 
 /* On hover, add a grey background color */
-.prev:hover, .next:hover {
+#mainContent .prev:hover, .next:hover {
   background-color: #e3e3e3;
   text-decoration: none;
   color: black;
 }
 /* Small screens */
 @media only screen and (max-width: 767px) {
-  .slideshow-container {
+  #mainContent .slideshow-container {
     width: 100%;
     height: 180px;
     padding-bottom: 5%;
@@ -112,7 +112,7 @@
 
 /* Medium and up screens */
 @media only screen and (min-width: 768px) {
-  .slideshow-container {
+  #mainContent .slideshow-container {
     width: 80%;
     height: 310px;
     padding-bottom: 10%;

@@ -2,3 +2,11 @@ body {
     background-color: #03989E;
     background: linear-gradient(to bottom, #03989E 5%, #FEFEFE 80%);
   }
+
+  #barra{
+    height: 4px;
+    color: #FEFEFE;
+    opacity: 0.8;
+    margin: 0% 20% 3% 20%;
+    border-radius: 15px;
+  }
