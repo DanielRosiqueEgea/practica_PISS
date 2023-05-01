@@ -110,7 +110,7 @@ if (!isset($_GET['juego'])) {
             }else{
                 $iconoDuracion =$duracion[$juego->duracion];
             } ?>
-            <h3 style="display:block"><i class="fa fa-clock-o" aria-hidden="true"></i><?=$iconoDuracion?></h3>
+            <h3 style="display:block"><i class="fa-regular fa-clock"></i><?=$iconoDuracion?></h3>
             <p class="descriptionContainer"> <br><?= $juego->descripcionJuego ?>
             </p>
         </article>

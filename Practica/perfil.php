@@ -47,11 +47,29 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <!-- <i class="fa-solid fa-crown" style="color: #ffea00; font-size: 75px;"></i>
+            <img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>"> -->
+
+            <div style="position: relative;">
+                
+                <img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>">
+                <?php 
+                if($usuario->premium){
+                
+                ?>
+                <i class="fa-solid fa-crown fa-2x" style="color: #ffea00;font-size:75px; position: absolute; top: -10px; right: 25%;"></i>
+                <?php }?>
+            </div>
             <span class="font-weight-bold"><?=$usuario->nickname?></span>
             <span class="text-black-50"><?=$usuario->email?></span>
             <span class="text-black-50"><?=$usuario->fechaNac?></span>
             
+            <form action="getPremium.php" method="post">
+                <input type="hidden" id="premiumValue" name="premium" value="<?=!$usuario->premium?>" />
+                <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button"><?=$usuario->premium?"Desuscribirse":"Hacerse Premium"?></button></div>
+            </form>
+          
         </div>
         </div>
         

@@ -27,8 +27,9 @@
 //         $sql="SELECT * FROM videojuegos";
 //     }
 
-
-    
+    if (!headers_sent() && '' == session_id()) {
+        session_start();
+    }
     // include("../../Practica/head.php");
     $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.duracion FROM videojuegos AS v";
     $sql = $sql. " LEFT JOIN generosjuego ON generosjuego.idJuego = v.idJuego LEFT JOIN generos ON generosjuego.idGenero = generos.idGenero"; 
@@ -113,7 +114,16 @@ form {
                      
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
-                            <p class="precio" itemprop="price"><i class="fa-solid fa-heart"></i></p>
+
+                            <p class="precio" itemprop="price">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-chess-board"></i> <!-- tablero -->
+                                <i class="fa-solid fa-dice"></i> <!-- dados -->
+                                <i class="fa-solid fa-dice-d20"></i> <!-- Rol -->
+                                <i class="fa-solid fa-martini-glass-citrus"></i> <!-- PArty games -->
+                                <i class="fa-solid fa-chess-pawn"></i> <!-- fichas -->
+                                <i class="fa-solid fa-crosshairs"></i> <!-- shooters -->
+                                </p>
                             <!-- <=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?> -->
                         </a>
                     </article>

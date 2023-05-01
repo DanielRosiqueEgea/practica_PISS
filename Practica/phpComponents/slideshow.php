@@ -74,7 +74,7 @@ for($i=(count($sql)-1);$i>=0;$i--){
                              }else{
                                  $iconoDuracion =$duracion[$juego->duracion];
                              } ?>
-                            <p class="precio" itemprop="duration"><i class="fa fa-clock-o" aria-hidden="true"></i><?=$iconoDuracion?></p>
+                            <p class="precio" itemprop="duration"><i class="fa-regular fa-clock"></i><?=$iconoDuracion?></p>
                         </a>
                     </article>
                     <?php } if(mysqli_num_rows($resultado)>4){?>

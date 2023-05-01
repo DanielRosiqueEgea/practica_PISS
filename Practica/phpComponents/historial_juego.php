@@ -4,7 +4,7 @@
         <!--BOTON INSTRUCCIONES-->
         <div class="boton-modal">
             <label for="btn-modal-instrucciones">
-            <span class="icon"> <i class="fa fa-file-text-o"style="color:black;"></i></span>    
+            <span class="icon"> <i class="fa-solid fa-book" style="color:black"></i></span>    
             
             </label>
 
