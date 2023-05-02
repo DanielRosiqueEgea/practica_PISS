@@ -86,7 +86,7 @@ Dropdown dentro del sidepanel
 .caret_down{
   transform: rotate(90deg);
   margin: 2px -35px 0px -13px;
-  padding: 0px 71px 0px 7px;
+  padding: 0px 32px 0px 36px;
   transition: 0.5s;
 }
 
@@ -135,7 +135,7 @@ a i{
 }
 
 .enlaceCatalogo{
-  padding: 4px 0px 0px 4px;
+  padding: 4px 10px 1px 10px;
   text-decoration: none;
   color: #F4F8FF;
   /* display: block; */

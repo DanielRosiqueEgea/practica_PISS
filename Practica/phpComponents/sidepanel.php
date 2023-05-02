@@ -27,7 +27,7 @@
 
         <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Nº Jugadores <i
                 class="fa fa-caret-right"></i></a></li>
-        <span class="segundolvl">
+        <span class="segundolvl" style="margin: 0px -51px 13px -33px;">
         <?php 
             $qry_consolas = "SELECT * FROM consolas";
             $rsc_consolas = peticionSQL($qry_consolas,$link);
