@@ -32,8 +32,9 @@ if(!isset($_SESSION['user'])){
     ?>
          
         </div>
+        
         <div class="header">
-            <div class ="title">Chat</div>
+            
          <button class="close-button">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </button>

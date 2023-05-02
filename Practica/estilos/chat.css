@@ -87,16 +87,15 @@
 	 display: flex;
 	 background: transparent;
 }
- .floating-chat .chat .header .title {
-	 flex-grow: 1;
-	 flex-shrink: 1;
-	 padding: 0 5px;
-}
+ 
  .floating-chat .chat .header .close-button {
 	float:right;
-	position:absolute;
+	position:fixed;
 	 right:0;
 	 flex-shrink: 0;
+	 width: 50px;
+	 height: 50px;
+	 
 }
 
 .floating-chat .chat .chatusers {
@@ -104,7 +103,7 @@
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 100px;
+	width: 120px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	display: flex;
@@ -137,8 +136,9 @@
   }
 
  .floating-chat .chat .messages {
-	 padding: 10px;
+	 padding-left: 120px;
 	 margin: 0;
+	 padding-top: 20px;
 	 list-style: none;
 	 overflow-y: scroll;
 	 overflow-x: hidden;
@@ -244,6 +244,7 @@
 	 padding-top: 10px;
 	 max-height: 90px;
 	 background: transparent;
+	 padding-left: 130px;
 }
  .floating-chat .chat .footer .text-box {
 	 border-radius: 3px;
@@ -254,6 +255,7 @@
 	 color: #0ec879;
 	 overflow-y: auto;
 	 padding: 2px 5px;
+	 
 }
  .floating-chat .chat .footer .text-box::-webkit-scrollbar {
 	 width: 5px;
