@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 08:39 PM
+-- Generation Time: May 02, 2023 at 09:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -79,10 +79,10 @@ CREATE TABLE `consolas` (
 --
 
 INSERT INTO `consolas` (`idConsola`, `nombreConsola`) VALUES
-(1, 'Xbox'),
-(2, 'PlayStation'),
-(3, 'PC'),
-(4, 'Nintendo');
+(1, ' 1'),
+(2, ' 2'),
+(3, ' 3'),
+(4, '4');
 
 -- --------------------------------------------------------
 
