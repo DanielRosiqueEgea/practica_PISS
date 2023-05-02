@@ -123,6 +123,9 @@ form {
                                 <i class="fa-solid fa-martini-glass-citrus"></i> <!-- PArty games -->
                                 <i class="fa-solid fa-chess-pawn"></i> <!-- fichas -->
                                 <i class="fa-solid fa-crosshairs"></i> <!-- shooters -->
+                                <span class="fa-solid fa-custom-svg" style="font-size: 24px; color: #333;">
+                                <img class="fa-solid" src="imagenes/cartas.svg" alt="Descripción del icono SVG">
+                                </span>                          
                                 </p>
                             <!-- <=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?> -->
                         </a>

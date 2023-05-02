@@ -56,7 +56,6 @@
                 <img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>">
                 <?php 
                 if($usuario->premium){
-                
                 ?>
                 <i class="fa-solid fa-crown fa-2x" style="color: #ffea00;font-size:75px; position: absolute; top: -10px; right: 25%;"></i>
                 <?php }?>
