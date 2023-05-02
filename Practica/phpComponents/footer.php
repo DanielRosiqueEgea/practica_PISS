@@ -119,7 +119,7 @@
   <!-- Grid container -->
   
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgb(60, 60, 60)">
+  <div class="text-center p-3" style="color: aliceblue; background-color: rgb(60, 60, 60)">
     © 2020 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">Fractal Games</a>
   </div>

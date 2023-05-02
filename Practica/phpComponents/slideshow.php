@@ -58,14 +58,14 @@ for($i=(count($sql)-1);$i>=0;$i--){
                     while ($juego = mysqli_fetch_object($resultado)) {
         
                     ?>
-                    <article class="mySlides<?=$i+1?> slide first-child" itemscope itemtype="https://schema.org/Game">
-                        <a href="javascript:void(0)" onclick="irAJuego(<?= $juego->idJuego?>)">
+                    <article class="mySlides<?=$i+1?> slide first-child tarjetaJuego" itemscope itemtype="https://schema.org/Game">
+                    <a href="javascript:void(0)" onclick="irAJuego(<?= $juego->idJuego?>)">
                             <?php
                              $sql_imagen = "SELECT * FROM imagenes WHERE idJuego = $juego->idJuego;";
                              $resultado_imagen = peticionSQL($sql_imagen,$dblink);    
                             ?>
 
-                            <div style="position:relative;">
+                            <div  style="position:relative;">
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <?php 
                             if($juego->rotacion){
@@ -73,8 +73,8 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             <span class="fa-stack" title="Rotación" style="font-size:30px; position: absolute; bottom: 1%; right: 2%;" >
                             <!-- <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:50px; color: red; "></i>
                             <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:40px; color: white;"></i> -->
-                            <i class="fa-solid fa-circle fa-stack-1x" style="font-size:; color: white ;"></i>
-                                <i class="fa-solid fa-dollar-sign fa-stack-1x" style="font-size: 20px; color:;"></i>
+                            <i class="fa-solid fa-circle fa-stack-1x" style="color: white ;"></i>
+                                <i class="fa-solid fa-dollar-sign fa-stack-1x" style="font-size: 20px;"></i>
                                 <i class="fa-solid fa-ban fa-stack-1x" style="color:red;"></i>
                             </span>    
                             <?php }?>
@@ -88,6 +88,7 @@ for($i=(count($sql)-1);$i>=0;$i--){
                              } ?>
                             <p class="precio" itemprop="duration"><i class="fa-regular fa-clock"></i><?=$iconoDuracion?></p>
                         </a>
+
                     </article>
                     <?php } if(mysqli_num_rows($resultado)>4){?>
                     <article class="slideBtnNext">
