@@ -30,9 +30,9 @@
         <th  colspan="3" style="text-align:center;">Ranking</th>
     </tr>
     <tr>
-        <th>POSICION</th>
-        <th>PUNTUACION</th>
-        <th>USUARIO</th>
+        <th> POSICION </th>
+        <th> PUNTUACION </th>
+        <th> USUARIO </th>
     </tr>
   <?php
     $i = 1;

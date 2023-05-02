@@ -4,7 +4,7 @@
 }
 
  .floating-chat {
-    z-index: 1;
+	 z-index: 1;
 	 cursor: pointer;
 	 display: flex;
 	 align-items: center;
@@ -23,6 +23,10 @@
 	 background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
 	 background-repeat: no-repeat;
 	 background-attachment: fixed;
+	 -webkit-transform: translateY(70px);
+	 -moz-transform: translateY(70px);
+	 -ms-transform: translateY(70px);
+	 -o-transform: translateY(70px);
 }
  .floating-chat.enter:hover {
 	 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);

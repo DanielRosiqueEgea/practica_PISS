@@ -25,16 +25,17 @@
         <section id="mainContent">
     <?php
     include("phpComponents/datos_juego.php");
-    echo "<br><h1>JUEGO</h1>";
-    include("phpComponents/historial_juego.php");
-    include("phpComponents/ranking.php");
+    
+    //include("phpComponents/ranking.php");
     include("phpComponents/gameContainer.php");
+    
     ?>
     <br>
        
       
    </section>
    <?php
+   include("phpComponents/historial_juego.php");
     include("phpComponents/chat.php");
     
     ?>
