@@ -30,7 +30,7 @@
     include("phpComponents/gameContainer.php");
     include("phpComponents/footer.php");
     ?>
-    <br>
+    
        
       
    </section>

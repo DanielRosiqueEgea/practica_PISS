@@ -1,7 +1,7 @@
 <form action="" method="post">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter" style="background-color: #FF8E3C; border-color: #f2f2f2;">+</button>
+            <button id="toggle-button" class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter" style="background-color: #FF8E3C; border-color: #f2f2f2;" onclick="toggleSearchForm()">+</button> 
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -58,3 +58,19 @@
         </div>
     </div>
 </form>
+<script>
+function toggleSearchForm() {
+  var searchForm = document.getElementById("collapseFilter");
+  var toggleButton = document.getElementById("toggle-button");
+  
+  if (searchForm.classList.contains("collapse")) {
+    // Open the search form
+    searchForm.classList.remove("collapse");
+    toggleButton.innerHTML = "-";
+  } else {
+    // Close the search form
+    searchForm.classList.add("collapse");
+    toggleButton.innerHTML = "+";
+  }
+}
+</script>
