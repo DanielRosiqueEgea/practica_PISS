@@ -80,7 +80,7 @@
     <input type="checkbox" id="btn-modal-ranking">
         <div class="container-modal-ranking">
             <div class="content-modal-ranking">
-                <h2>Instrucciones básicas del juego</h2>
+                <h2>Ranking</h2>
                 <?php
     
     
