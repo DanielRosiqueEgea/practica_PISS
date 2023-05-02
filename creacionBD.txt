@@ -2,23 +2,23 @@
 -- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2023 a las 14:45:30
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.5
+-- Host: 127.0.0.1
+-- Generation Time: May 02, 2023 at 08:39 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `practica`
+-- Database: `practica`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comprados`
+-- Table structure for table `comprados`
 --
 
 CREATE TABLE `comprados` (
@@ -29,7 +29,7 @@ CREATE TABLE `comprados` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `consolajuego`
+-- Table structure for table `consolajuego`
 --
 
 CREATE TABLE `consolajuego` (
@@ -38,7 +38,7 @@ CREATE TABLE `consolajuego` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `consolajuego`
+-- Dumping data for table `consolajuego`
 --
 
 INSERT INTO `consolajuego` (`idConsola`, `idJuego`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `consolajuego` (`idConsola`, `idJuego`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `consolas`
+-- Table structure for table `consolas`
 --
 
 CREATE TABLE `consolas` (
@@ -75,7 +75,7 @@ CREATE TABLE `consolas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `consolas`
+-- Dumping data for table `consolas`
 --
 
 INSERT INTO `consolas` (`idConsola`, `nombreConsola`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `consolas` (`idConsola`, `nombreConsola`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `equipo`
+-- Table structure for table `equipo`
 --
 
 CREATE TABLE `equipo` (
@@ -99,7 +99,7 @@ CREATE TABLE `equipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `equipo`
+-- Dumping data for table `equipo`
 --
 
 INSERT INTO `equipo` (`id_equipo`, `nombre`, `puesto`, `description`, `email`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `equipo` (`id_equipo`, `nombre`, `puesto`, `description`, `email`) V
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `favoritos`
+-- Table structure for table `favoritos`
 --
 
 CREATE TABLE `favoritos` (
@@ -118,7 +118,7 @@ CREATE TABLE `favoritos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `favoritos`
+-- Dumping data for table `favoritos`
 --
 
 INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
@@ -133,7 +133,7 @@ INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generos`
+-- Table structure for table `generos`
 --
 
 CREATE TABLE `generos` (
@@ -144,7 +144,7 @@ CREATE TABLE `generos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `generos`
+-- Dumping data for table `generos`
 --
 
 INSERT INTO `generos` (`idGenero`, `nombreGenero`, `icono`, `descripcionGenero`) VALUES
@@ -161,7 +161,7 @@ INSERT INTO `generos` (`idGenero`, `nombreGenero`, `icono`, `descripcionGenero`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generosjuego`
+-- Table structure for table `generosjuego`
 --
 
 CREATE TABLE `generosjuego` (
@@ -170,7 +170,7 @@ CREATE TABLE `generosjuego` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `generosjuego`
+-- Dumping data for table `generosjuego`
 --
 
 INSERT INTO `generosjuego` (`idGenero`, `idJuego`) VALUES
@@ -178,16 +178,32 @@ INSERT INTO `generosjuego` (`idGenero`, `idJuego`) VALUES
 (1, 3),
 (1, 6),
 (1, 21),
+(1, 23),
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 30),
 (2, 6),
 (2, 20),
 (3, 18),
 (3, 19),
 (4, 1),
 (4, 3),
+(4, 24),
+(4, 25),
+(4, 26),
+(4, 27),
+(4, 28),
+(4, 29),
+(4, 30),
 (5, 1),
 (5, 21),
 (6, 6),
 (6, 20),
+(6, 23),
+(6, 24),
+(6, 25),
+(6, 26),
 (7, 14),
 (7, 15),
 (8, 3),
@@ -200,7 +216,7 @@ INSERT INTO `generosjuego` (`idGenero`, `idJuego`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes`
+-- Table structure for table `imagenes`
 --
 
 CREATE TABLE `imagenes` (
@@ -210,7 +226,7 @@ CREATE TABLE `imagenes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `imagenes`
+-- Dumping data for table `imagenes`
 --
 
 INSERT INTO `imagenes` (`idImagen`, `idJuego`, `urlImagen`) VALUES
@@ -228,12 +244,20 @@ INSERT INTO `imagenes` (`idImagen`, `idJuego`, `urlImagen`) VALUES
 (16, 22, 'imagenes/dota2.jfif'),
 (17, 21, 'imagenes/dmc5.jfif'),
 (18, 19, 'imagenes/catherine.jfif'),
-(19, 18, 'imagenes/losSims4.jfif');
+(19, 18, 'imagenes/losSims4.jfif'),
+(23, 23, 'imagenes/classicwordsearch.png'),
+(24, 24, 'imagenes/crucigramasdeldia.png'),
+(25, 25, 'imagenes/dailyworduky.png'),
+(26, 26, 'imagenes/darkmahjongsolitaire.png'),
+(27, 27, 'imagenes/rotterdamsklaverjassen.png'),
+(28, 28, 'imagenes/scorpionsolitaire.png'),
+(29, 29, 'imagenes/secretrussian.png'),
+(30, 30, 'imagenes/thirtyone.png');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajechat`
+-- Table structure for table `mensajechat`
 --
 
 CREATE TABLE `mensajechat` (
@@ -245,7 +269,7 @@ CREATE TABLE `mensajechat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `mensajechat`
+-- Dumping data for table `mensajechat`
 --
 
 INSERT INTO `mensajechat` (`idMensaje`, `idSender`, `idReceiver`, `contenido`, `timestamp`) VALUES
@@ -267,7 +291,7 @@ INSERT INTO `mensajechat` (`idMensaje`, `idSender`, `idReceiver`, `contenido`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `puntuaciones`
+-- Table structure for table `puntuaciones`
 --
 
 CREATE TABLE `puntuaciones` (
@@ -277,7 +301,7 @@ CREATE TABLE `puntuaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `puntuaciones`
+-- Dumping data for table `puntuaciones`
 --
 
 INSERT INTO `puntuaciones` (`idUsuario`, `idJuego`, `puntuacion`) VALUES
@@ -285,8 +309,16 @@ INSERT INTO `puntuaciones` (`idUsuario`, `idJuego`, `puntuacion`) VALUES
 (1, 3, 0),
 (1, 5, 0),
 (1, 6, 0),
-(1, 12, -113),
+(1, 12, 761),
 (1, 14, 0),
+(1, 23, 2),
+(1, 24, 0),
+(1, 25, 0),
+(1, 26, 0),
+(1, 27, 0),
+(1, 28, 0),
+(1, 29, 0),
+(1, 30, 0),
 (3, 1, 211),
 (3, 3, 0),
 (3, 5, 0),
@@ -302,7 +334,7 @@ INSERT INTO `puntuaciones` (`idUsuario`, `idJuego`, `puntuacion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -318,7 +350,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `premium`, `nickname`, `nombre`, `apellidos`, `password`, `email`, `fotoPerfil`, `fechaNac`) VALUES
@@ -330,7 +362,7 @@ INSERT INTO `usuarios` (`idUsuario`, `premium`, `nickname`, `nombre`, `apellidos
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `videojuegos`
+-- Table structure for table `videojuegos`
 --
 
 CREATE TABLE `videojuegos` (
@@ -345,7 +377,7 @@ CREATE TABLE `videojuegos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `videojuegos`
+-- Dumping data for table `videojuegos`
 --
 
 INSERT INTO `videojuegos` (`idJuego`, `nombreJuego`, `descripcionJuego`, `numeroJugadores`, `valoración`, `urlJuego`, `rotacion`, `duracion`) VALUES
@@ -363,60 +395,68 @@ INSERT INTO `videojuegos` (`idJuego`, `nombreJuego`, `descripcionJuego`, `numero
 (19, 'Catherine: Full Body', 'Catherine: Full Body es un videojuego de plataformas y puzles desarrollado por Studio Zero y publicado por Atlus, para las consolas PlayStation 4, PlayStation Vita y Nintendo Switch.1​ Es una versión extendida del videojuego Catherine lanzado en 2011 en PlayStation 3 y Xbox 360', 1, '8.3', 'not available', 0, 2),
 (20, 'Amnesia: The Dark Descent', 'El juego sitúa al jugador en el papel de Daniel, que despierta en un oscuro castillo sin apenas recuerdos de quién es y su pasado.5​ Todo lo que puede recordar es su nombre, su origen londinense y que algo está persiguiéndolo.', 4, '9.9', 'not available', 0, 2),
 (21, 'Devil May Cry 5', 'El jugador lucha contra hordas de demonios con una variedad de ataques a distancia y armas cuerpo a cuerpo para recibir una calificación de estilo en combate basada en una serie de factores, como la variedad de movimientos, la duración de un combo y los ataques esquivados.', 1, '9.0', 'not available', 0, 0),
-(22, 'Dota 2', 'Dota 2 es un videojuego perteneciente al género de Arena de batalla en línea ARTS («estrategia de acción en tiempo real»), también conocido como MOBA, lanzado el 9 de julio del año 2013.', 4, '9.0', 'not available', 1, 1);
+(22, 'Dota 2', 'Dota 2 es un videojuego perteneciente al género de Arena de batalla en línea ARTS («estrategia de acción en tiempo real»), también conocido como MOBA, lanzado el 9 de julio del año 2013.', 4, '9.0', 'not available', 1, 1),
+(23, 'Classic Word Search', 'Juego clásico de búsqueda de palabras. ¡Búscalas todas!', 1, '7.2', 'Juegos/ClassicWordSearch/ClassicWordSearch.html', 0, 2),
+(24, 'Crucigramas Del Día', 'Juego de crucigramas diarios', 1, '7.8', 'Juegos/CrucigramasDelDia/CrucigramasDelDia.html', 0, 2),
+(25, 'Daily Wordoku', 'Mezcla entre puzles de palabras y sudoku diario', 1, '6.9', 'Juegos/DailyWordoku/DailyWordoku.html', 0, 2),
+(26, 'Dark Mahjong Solitaire', 'Juego de mahjong solitario con temática oscura', 1, '8.1', 'Juegos/DarkMahjongSolitaire/DarkMahjongSolitaire.html', 0, 2),
+(27, 'Rotterdams Klaverjassen', 'Juego holandés \"Jas\" de cartas para 4 jugadores', 4, '8.5', 'Juegos/RotterdamsKlaverjassen/RotterdamsKlaverjassen.html', 0, 3),
+(28, 'Scorpion Solitaire', 'Juego clásico de solitario con temática de scorpion', 1, '7.1', 'Juegos/ScorpionSolitaire/ScorpionSolitaire.html', 0, 2),
+(29, 'Secret Russian', 'Juego clásico de solitario con temática de ruso', 1, '6.6', 'Juegos/SecretRussian/SecretRussian.html', 0, 2),
+(30, 'Thirty One', 'Juego clásico de 21 pero con un giro', 4, '8.9', 'Juegos/ThirtyOne/ThirtyOne.html', 0, 3);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comprados`
+-- Indexes for table `comprados`
 --
 ALTER TABLE `comprados`
   ADD PRIMARY KEY (`idUsuario`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `consolajuego`
+-- Indexes for table `consolajuego`
 --
 ALTER TABLE `consolajuego`
   ADD PRIMARY KEY (`idConsola`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `consolas`
+-- Indexes for table `consolas`
 --
 ALTER TABLE `consolas`
   ADD PRIMARY KEY (`idConsola`);
 
 --
--- Indices de la tabla `equipo`
+-- Indexes for table `equipo`
 --
 ALTER TABLE `equipo`
   ADD PRIMARY KEY (`id_equipo`);
 
 --
--- Indices de la tabla `favoritos`
+-- Indexes for table `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD PRIMARY KEY (`idUsuario`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `generos`
+-- Indexes for table `generos`
 --
 ALTER TABLE `generos`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Indices de la tabla `generosjuego`
+-- Indexes for table `generosjuego`
 --
 ALTER TABLE `generosjuego`
   ADD PRIMARY KEY (`idGenero`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `imagenes`
+-- Indexes for table `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`idImagen`),
@@ -424,7 +464,7 @@ ALTER TABLE `imagenes`
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `mensajechat`
+-- Indexes for table `mensajechat`
 --
 ALTER TABLE `mensajechat`
   ADD PRIMARY KEY (`idMensaje`),
@@ -432,112 +472,112 @@ ALTER TABLE `mensajechat`
   ADD KEY `mensajechat_ibfk_1` (`idReceiver`);
 
 --
--- Indices de la tabla `puntuaciones`
+-- Indexes for table `puntuaciones`
 --
 ALTER TABLE `puntuaciones`
   ADD PRIMARY KEY (`idUsuario`,`idJuego`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`),
   ADD UNIQUE KEY `nickname` (`nickname`);
 
 --
--- Indices de la tabla `videojuegos`
+-- Indexes for table `videojuegos`
 --
 ALTER TABLE `videojuegos`
   ADD PRIMARY KEY (`idJuego`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `consolas`
+-- AUTO_INCREMENT for table `consolas`
 --
 ALTER TABLE `consolas`
   MODIFY `idConsola` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `generos`
+-- AUTO_INCREMENT for table `generos`
 --
 ALTER TABLE `generos`
   MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `imagenes`
+-- AUTO_INCREMENT for table `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `idImagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idImagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de la tabla `mensajechat`
+-- AUTO_INCREMENT for table `mensajechat`
 --
 ALTER TABLE `mensajechat`
   MODIFY `idMensaje` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `videojuegos`
+-- AUTO_INCREMENT for table `videojuegos`
 --
 ALTER TABLE `videojuegos`
-  MODIFY `idJuego` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idJuego` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comprados`
+-- Constraints for table `comprados`
 --
 ALTER TABLE `comprados`
   ADD CONSTRAINT `comprados_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),
   ADD CONSTRAINT `comprados_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
 
 --
--- Filtros para la tabla `consolajuego`
+-- Constraints for table `consolajuego`
 --
 ALTER TABLE `consolajuego`
   ADD CONSTRAINT `consolaJuego_ibfk_1` FOREIGN KEY (`idConsola`) REFERENCES `consolas` (`idConsola`),
   ADD CONSTRAINT `consolaJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
 
 --
--- Filtros para la tabla `favoritos`
+-- Constraints for table `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),
   ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
 
 --
--- Filtros para la tabla `generosjuego`
+-- Constraints for table `generosjuego`
 --
 ALTER TABLE `generosjuego`
   ADD CONSTRAINT `generosJuego_ibfk_1` FOREIGN KEY (`idGenero`) REFERENCES `generos` (`idGenero`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `generosJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `imagenes`
+-- Constraints for table `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
 
 --
--- Filtros para la tabla `mensajechat`
+-- Constraints for table `mensajechat`
 --
 ALTER TABLE `mensajechat`
   ADD CONSTRAINT `mensajechat_ibfk_1` FOREIGN KEY (`idReceiver`) REFERENCES `usuarios` (`idUsuario`),
   ADD CONSTRAINT `mensajechat_ibfk_2` FOREIGN KEY (`idSender`) REFERENCES `usuarios` (`idUsuario`);
 
 --
--- Filtros para la tabla `puntuaciones`
+-- Constraints for table `puntuaciones`
 --
 ALTER TABLE `puntuaciones`
   ADD CONSTRAINT `puntuaciones_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`),

@@ -1,0 +1,33 @@
+<div><script src="https://cdn.htmlgames.com/embed.js?game=DarkMahjongSolitaire&amp;bgcolor=white"></script>
+
+<script>
+       var score = 0;
+    
+    function getRandomNumber(min, max) {
+  // Generar un número aleatorio entre 0 y 1
+  let random = Math.random();
+
+  // Calcular la longitud del rango y ajustar el número aleatorio generado
+  let rangeLength = max - min + 1; // Sumamos 1 para incluir el valor máximo
+  let adjustedRandom = random * rangeLength;
+
+  // Devolver el número aleatorio dentro del rango especificado
+  return Math.floor(adjustedRandom) + min;
+}
+
+// Ejemplo de uso:
+
+    
+function scoreUpdate() {
+ 
+    let randomNumber = getRandomNumber(-5, 20);  
+    score+=randomNumber;  
+    window.parent.postMessage({ type: 'scoreUpdate', score: score}, '*');
+}
+
+    setInterval(scoreUpdate, 30000); 
+    
+    
+    
+    
+    </script></div>
