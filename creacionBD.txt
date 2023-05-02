@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2023 a las 14:04:12
+-- Tiempo de generación: 02-05-2023 a las 14:45:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.5
 
@@ -125,8 +125,10 @@ INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
 (1, 1),
 (1, 6),
 (1, 20),
+(3, 1),
 (3, 3),
-(3, 6);
+(3, 6),
+(3, 21);
 
 -- --------------------------------------------------------
 
@@ -137,6 +139,7 @@ INSERT INTO `favoritos` (`idUsuario`, `idJuego`) VALUES
 CREATE TABLE `generos` (
   `idGenero` int(11) NOT NULL,
   `nombreGenero` varchar(30) NOT NULL,
+  `icono` text NOT NULL DEFAULT 'fa-solid fa-exclamation',
   `descripcionGenero` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -144,17 +147,16 @@ CREATE TABLE `generos` (
 -- Volcado de datos para la tabla `generos`
 --
 
-INSERT INTO `generos` (`idGenero`, `nombreGenero`, `descripcionGenero`) VALUES
-(1, 'Cartas', 'Juegos de Cartas'),
-(2, 'Rol', 'Juegos de Rol en los cuales los jugadores tendrán que hacerse pasar por un personaje'),
-(3, 'Dados', 'Estos juegos usan dados para muchas cosas, el parchís o el risk son dos ejemplos'),
-(4, 'Tablero', 'Juegos que usan un tablero, desde el ajedrez al parchís'),
-(5, 'Party Games', 'Los juegos de fiesta son aquellos para jugar en ámbitos más animados. Cartas contra la humanidad, times up, exploding kittens...'),
-(6, 'Puzzles', 'Los juegos de puzzles requieren usar tu agilidad mental para superarte a ti mismo o al equipo contrario. Solitario, código secreto, conecta 4...'),
-(7, 'Fillers', 'Son juegos de mecánicas sencillas y fáciles de explicar con partidas inferiores a una hora y con cajas pequeñas.'),
-(8, 'Shooters', 'Tanto en primera como tercera persona, los shooters se basan en disparar a todo lo que se mueva.'),
-(9, 'Free to Play', 'Juegos gratis a los que se puede jugar sin pagar nada.'),
-(10, 'Juegos de fichas', 'Son juegos en los que se usan fichas marcadas, tales como el dominó, el Mahjong. Un juego que se podría incluir en esta categoría es Carcassonne, considerando las parcelas como las fichas, ya que cada una tiene una orientación y según donde las coloques podrás conseguir más o menos puntuación.');
+INSERT INTO `generos` (`idGenero`, `nombreGenero`, `icono`, `descripcionGenero`) VALUES
+(1, 'Cartas', 'fa-solid fa-clover', 'Juegos de Cartas'),
+(2, 'Rol', 'fa-solid fa-dice-d20', 'Juegos de Rol en los cuales los jugadores tendrán que hacerse pasar por un personaje'),
+(3, 'Dados', 'fa-solid fa-dice', 'Estos juegos usan dados para muchas cosas, el parchís o el risk son dos ejemplos'),
+(4, 'Tablero', 'fa-solid fa-chess-board', 'Juegos que usan un tablero, desde el ajedrez al parchís'),
+(5, 'Party Games', 'fa-solid fa-martini-glass-citrus', 'Los juegos de fiesta son aquellos para jugar en ámbitos más animados. Cartas contra la humanidad, times up, exploding kittens...'),
+(6, 'Puzzles', 'fa-solid fa-puzzle-piece', 'Los juegos de puzzles requieren usar tu agilidad mental para superarte a ti mismo o al equipo contrario. Solitario, código secreto, conecta 4...'),
+(7, 'Fillers', 'fa-solid fa-fill', 'Son juegos de mecánicas sencillas y fáciles de explicar con partidas inferiores a una hora y con cajas pequeñas.'),
+(8, 'Shooters', 'fa-solid fa-crosshairs', 'Tanto en primera como tercera persona, los shooters se basan en disparar a todo lo que se mueva.'),
+(10, 'Juegos de fichas', 'fa-solid fa-chess-pawn', 'Son juegos en los que se usan fichas marcadas, tales como el dominó, el Mahjong. Un juego que se podría incluir en esta categoría es Carcassonne, considerando las parcelas como las fichas, ya que cada una tiene una orientación y según donde las coloques podrás conseguir más o menos puntuación.');
 
 -- --------------------------------------------------------
 
@@ -192,8 +194,6 @@ INSERT INTO `generosjuego` (`idGenero`, `idJuego`) VALUES
 (8, 5),
 (8, 13),
 (8, 17),
-(9, 16),
-(9, 22),
 (10, 16),
 (10, 22);
 
@@ -322,8 +322,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `premium`, `nickname`, `nombre`, `apellidos`, `password`, `email`, `fotoPerfil`, `fechaNac`) VALUES
-(1, 1, 'Roxoner44', 'Dani', 'Rosique Egea', 'password', 'drosique6@alu.ucam.edu', 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png', '2001-01-23'),
-(3, 0, 'Mada55', 'Magdalena', 'Cantabella Sabater', 'password', 'mmcantabella@ucam.edu', 'https://cdn-icons-png.flaticon.com/512/3135/3135823.png', '2022-06-07'),
+(1, 1, 'Roxoner44', 'Dani', 'Rosique Egea', 'password', 'drosique6@alu.ucam.edu', 'https://www.collinsdictionary.com/images/full/frog_101329531.jpg', '2001-01-23'),
+(3, 1, 'Mada55', 'Magdalena', 'Cantabella Sabater', 'password', 'mmcantabella@ucam.edu', 'https://cdn-icons-png.flaticon.com/512/3135/3135823.png', '2022-06-07'),
 (15, 0, 'joaquin66', 'Joaquín', 'Lasheras Velasco', 'password', 'jlasheras@ucam.edu', 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', '2023-04-29'),
 (16, 0, 'dani77', 'Daniel', 'Rosique Egea', 'password', 'drosique6@alu.ucam.edu', 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', '2023-04-29');
 
@@ -349,9 +349,9 @@ CREATE TABLE `videojuegos` (
 --
 
 INSERT INTO `videojuegos` (`idJuego`, `nombreJuego`, `descripcionJuego`, `numeroJugadores`, `valoración`, `urlJuego`, `rotacion`, `duracion`) VALUES
-(1, 'Solitario', 'Un juego para dominarlos a todos. Para atraerlos a todos y atarlos a sus pantallas. Si el escritor de \"El Señor de los Anillos\" hubiese elegido un juego para lanzar su profecía -en lugar de un anillo- posiblemente hubiese utilizado el Solitario, el mítico juego de cartas de Windows', 1, '9.9', 'Juegos/Solitario/solitario.html', 1, 1),
-(3, 'Marcianitos', 'El Mejor Juego de Marcianitos Del Mundo', 1, '9.9', 'Juegos\\SpaceShip\\twinShooter-HTML5-Shipping.html', 1, 2),
-(5, 'Maze Runner', 'Escapa del laberinto antes que el resto de jugadores. En este juego tendrás que ser el más rapido', 4, '7.5', 'Juegos\\Laberinto\\Laberinto.html', 1, 2),
+(1, 'Solitario', 'Un juego para dominarlos a todos. Para atraerlos a todos y atarlos a sus pantallas. Si el escritor de \"El Señor de los Anillos\" hubiese elegido un juego para lanzar su profecía -en lugar de un anillo- posiblemente hubiese utilizado el Solitario, el mítico juego de cartas de Windows', 1, '9.9', 'Juegos/Solitario/solitario.html', 0, 1),
+(3, 'Marcianitos', 'El Mejor Juego de Marcianitos Del Mundo', 1, '9.9', 'Juegos\\SpaceShip\\twinShooter-HTML5-Shipping.html', 0, 2),
+(5, 'Maze Runner', 'Escapa del laberinto antes que el resto de jugadores. En este juego tendrás que ser el más rapido', 4, '7.5', 'Juegos\\Laberinto\\Laberinto.html', 0, 2),
 (6, 'WesternShooter', 'PEW PEW', 2, '8.2', 'Juegos/ShooterOeste/MultiplayerShootout.html', 1, 2),
 (12, 'President', 'En este juego tan chulo tienes que ganar a los otros 4 jugadores', 4, '8.4', 'Juegos/President/president.html', 1, 3),
 (13, 'Grand Theft Auto V', 'Vuelve la saga de GTA, esta vez con Miguel, Trevor y Francisco. Roba coches y bancos en esta nueva entrega.', 4, '9.0', 'not available', 0, 4),
@@ -362,7 +362,7 @@ INSERT INTO `videojuegos` (`idJuego`, `nombreJuego`, `descripcionJuego`, `numero
 (18, 'The Sims 4', 'El jugador controla la vida de uno o más personajes, satisfaciendo sus deseos y necesidades. La acción tiene lugar en una ciudad que consta de lotes residenciales y públicos que está habitada por Sims. Cada personaje está dotado de inteligencia y emociones, tiene una apariencia y personalidad únicas.4​ Las relaciones entre las personas se miden en dos escalas, lo que refleja la fuerza de la amistad y el afecto romántico.', 1, '9.0', 'not available', 0, 2),
 (19, 'Catherine: Full Body', 'Catherine: Full Body es un videojuego de plataformas y puzles desarrollado por Studio Zero y publicado por Atlus, para las consolas PlayStation 4, PlayStation Vita y Nintendo Switch.1​ Es una versión extendida del videojuego Catherine lanzado en 2011 en PlayStation 3 y Xbox 360', 1, '8.3', 'not available', 0, 2),
 (20, 'Amnesia: The Dark Descent', 'El juego sitúa al jugador en el papel de Daniel, que despierta en un oscuro castillo sin apenas recuerdos de quién es y su pasado.5​ Todo lo que puede recordar es su nombre, su origen londinense y que algo está persiguiéndolo.', 4, '9.9', 'not available', 0, 2),
-(21, 'Devil May Cry 5', 'El jugador lucha contra hordas de demonios con una variedad de ataques a distancia y armas cuerpo a cuerpo para recibir una calificación de estilo en combate basada en una serie de factores, como la variedad de movimientos, la duración de un combo y los ataques esquivados.', 1, '9.0', 'not available', 1, 0),
+(21, 'Devil May Cry 5', 'El jugador lucha contra hordas de demonios con una variedad de ataques a distancia y armas cuerpo a cuerpo para recibir una calificación de estilo en combate basada en una serie de factores, como la variedad de movimientos, la duración de un combo y los ataques esquivados.', 1, '9.0', 'not available', 0, 0),
 (22, 'Dota 2', 'Dota 2 es un videojuego perteneciente al género de Arena de batalla en línea ARTS («estrategia de acción en tiempo real»), también conocido como MOBA, lanzado el 9 de julio del año 2013.', 4, '9.0', 'not available', 1, 1);
 
 --
@@ -520,8 +520,8 @@ ALTER TABLE `favoritos`
 -- Filtros para la tabla `generosjuego`
 --
 ALTER TABLE `generosjuego`
-  ADD CONSTRAINT `generosJuego_ibfk_1` FOREIGN KEY (`idGenero`) REFERENCES `generos` (`idGenero`),
-  ADD CONSTRAINT `generosJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`);
+  ADD CONSTRAINT `generosJuego_ibfk_1` FOREIGN KEY (`idGenero`) REFERENCES `generos` (`idGenero`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `generosJuego_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `videojuegos` (`idJuego`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes`
