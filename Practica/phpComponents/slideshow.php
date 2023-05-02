@@ -68,11 +68,16 @@ for($i=(count($sql)-1);$i>=0;$i--){
                             <div style="position:relative;">
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
                             <?php 
-                             if($juego->rotacion==0){
-                                ?>
-                                <i class="fa-solid fa-crown fa-2x" style="color: #ffea00;font-size:75px; position: absolute; top: -10px; right: 25%;"></i>
-                                <?php }
+                            if($juego->rotacion){
                             ?>
+                            <span class="fa-stack" title="Rotación" style="font-size:30px; position: absolute; bottom: 1%; right: 2%;" >
+                            <!-- <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:50px; color: red; "></i>
+                            <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:40px; color: white;"></i> -->
+                            <i class="fa-solid fa-circle fa-stack-1x" style="font-size:; color: white ;"></i>
+                                <i class="fa-solid fa-dollar-sign fa-stack-1x" style="font-size: 20px; color:;"></i>
+                                <i class="fa-solid fa-ban fa-stack-1x" style="color:red;"></i>
+                            </span>    
+                            <?php }?>
                     </div>
                             <!-- onerror="this.src='imagenes/img_not_found.webp';" -->
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>

@@ -114,6 +114,9 @@ form {
 
                             <div style="position: relative;">
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                          
+
+
                             <?php 
                             if($juego->rotacion){
                             ?>
