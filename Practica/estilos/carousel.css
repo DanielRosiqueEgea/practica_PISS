@@ -26,8 +26,9 @@
 }
 #banner .slide img {
   width: 100%;
-  height: 350px;
+  height: 350px; /*224px//*/
   object-fit: cover;
+  
 }
 #banner .slide a{
   text-decoration: none;
