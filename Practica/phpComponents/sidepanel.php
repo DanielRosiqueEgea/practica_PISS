@@ -48,8 +48,7 @@
         </span>
         <a href="catalogo.php?all=1">Catalogo</a>
 
-        <a href="#">Acceso al foro</a>
-        <!--Que hacemos con el foro?-->
+<a href="foro.php">Acceso al foro</a>      
 
         <nav class="busqueda">
             <form action="catalogo.php" method="post">
