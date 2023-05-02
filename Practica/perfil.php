@@ -21,7 +21,7 @@
    ?>
 
 
-<link rel="stylesheet" type="text/css" href="estilos/juego.css">
+<link rel="stylesheet" type="text/css" href="estilos/perfil.css">
 </head>
 
 <body>
@@ -51,13 +51,12 @@
             <!-- <i class="fa-solid fa-crown" style="color: #ffea00; font-size: 75px;"></i>
             <img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>"> -->
 
-            <div style="position: relative;">
-                
+            <div class="image-container">
                 <img class="rounded-circle mt-5" width="150px" src="<?=$usuario->fotoPerfil?>">
                 <?php 
                 if($usuario->premium){
                 ?>
-                <i class="fa-solid fa-crown fa-2x" style="color: #ffea00;font-size:75px; position: absolute; top: -10px; right: 25%;"></i>
+                <img src="imagenes/frame.png" alt="Premium Frame" class="frame-overlay">
                 <?php }?>
             </div>
             <span class="font-weight-bold"><?=$usuario->nickname?></span>
@@ -70,6 +69,41 @@
             </form>
           
         </div>
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+        <div class="badge-container">
+            <h4>Badges</h4>
+            <div class="row mt-3">
+                <?php
+                $badges = [random_int(1, 9), random_int(1, 6), random_int(1, 6)];
+                for ($i = 0; $i <= 2; $i++) {
+                    
+                    $badge_url = "imagenes/badges/badge-" . $i+1 . "-" . $badges[$i] . ".png";
+                    if($i==0){
+                        $game_name = "Western Shooter";
+                    }
+                    if($i==1){
+                        $game_name = "Laberinto";
+                    }
+                    if($i==2){
+                        $game_name = "Solitario";
+                    }
+                ?>
+        <div class="badge-item">
+                      <img src="<?= $badge_url ?>" alt="badge" class="img-fluid game-badge">
+                      <p>Nivel <?= $badges[$i] ?></p>
+                      <small><?= $game_name ?></small> 
+                  </div>
+
+             <?php } ?>
+            </div>
+        </div>
+
+
+    
+
+</div>
+
         </div>
         
         <div class="col-md-5 border-right">
@@ -89,7 +123,7 @@
                     <div class="col-md-6"><label class="labels">Nueva Contraseña</label><input name="newpass" type="password" class="form-control" value="" placeholder="*****" required></div>
                     <div class="col-md-12"><label class="labels">urlFotoPerfil</label><input name="fotoPerfil" type="url" class="form-control" value="<?=$usuario->fotoPerfil?>" required></div>
                 </div>
-                <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Actualizar Perfil</button></div>
             </div>
             </form>
         </div>
