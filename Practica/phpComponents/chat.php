@@ -29,6 +29,10 @@ if(!isset($_SESSION['user'])){
             
             echo "<button class=\"user-button\" data-id=\"".$userId."\" ><i class=\"fa fa-user\" aria-hidden=\"true\"></i>".$userName." </button> ";
         }
+        // GENERAR BOTONES DE MENTIRA
+        for($i=0;$i<20;$i++){
+            echo "<button class=\"user-button\" data-id=\"\" ><i class=\"fa fa-user\" aria-hidden=\"true\"></i>".$userName." </button> ";
+        }
     ?>
          
         </div>
@@ -79,7 +83,12 @@ for (let i = 0; i < cambiarUsuarioBtns.length; i++) {
     console.log("Se ha seleccionado el usuario: " + usuario);
    
 
-
+    var activeButton = document.querySelector(".user-button.active");
+      if (activeButton) {
+        activeButton.classList.remove("active");
+      }
+      // Agregar la clase "active" al botón que se acaba de hacer clic
+      this.classList.add("active");
     otherUser= usuario;
     // aquí puedes añadir la lógica necesaria para cambiar de usuario
   }

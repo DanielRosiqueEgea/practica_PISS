@@ -58,6 +58,8 @@
 	 border-radius: 3px;
 	 cursor: pointer;
 }
+
+
  .floating-chat .chat {
 	 display: flex;
 	 flex-direction: column;
@@ -135,6 +137,11 @@
 	white-space: nowrap;
   }
 
+  .user-button.active {
+	background-color: rgba(25, 147, 147, 0.2);
+	color: white;
+  }
+
  .floating-chat .chat .messages {
 	 padding-left: 120px;
 	 margin: 0;
@@ -146,14 +153,20 @@
 	 border-radius: 4px;
 	 background: transparent;
 }
- .floating-chat .chat .messages::-webkit-scrollbar {
+
+
+
+ .floating-chat .chat .messages::-webkit-scrollbar,
+ .floating-chat .chat .chatusers::-webkit-scrollbar {
 	 width: 5px;
 }
- .floating-chat .chat .messages::-webkit-scrollbar-track {
+ .floating-chat .chat .messages::-webkit-scrollbar-track ,
+ .floating-chat .chat .chatusers::-webkit-scrollbar-track {
 	 border-radius: 5px;
 	 background-color: rgba(25, 147, 147, 0.1);
 }
- .floating-chat .chat .messages::-webkit-scrollbar-thumb {
+ .floating-chat .chat .messages::-webkit-scrollbar-thumb,
+ .floating-chat .chat .chatusers::-webkit-scrollbar-thumb  {
 	 border-radius: 5px;
 	 background-color: rgba(25, 147, 147, 0.2);
 }
