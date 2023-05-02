@@ -148,6 +148,57 @@
                     echo "<div class=\"class-md-6\">No tienes juegos favoritos";
                 } ?>
             </div>
+
+
+ <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+ <table class="table">
+  <thead class="cabezal">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Tiempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><img src="imagenes\amnesia.webp" alt="badge" class="img-fluid game-badge"></td>
+      <td>123h 12min</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><img src="imagenes\GTAV.jpg" alt="badge" class="img-fluid game-badge"></td>
+      <td>345h 01min</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><img src="imagenes\marcianitos.png" alt="badge" class="img-fluid game-badge"></td>
+      <td>13h 34min</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td><img src="imagenes\infamous-2.webp" alt="badge" class="img-fluid game-badge"></td>
+      <td>15h 32min</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td><img src="imagenes\Isaac.jpg" alt="badge" class="img-fluid game-badge"></td>
+      <td>456h 16min</td>
+      
+    </tr>
+  </tbody>
+</table>
+
+
+    
+
+</div>
+
         </div>
     </div>
 </div>
