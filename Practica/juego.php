@@ -28,7 +28,7 @@
     
     //include("phpComponents/ranking.php");
     include("phpComponents/gameContainer.php");
-    
+    include("phpComponents/footer.php");
     ?>
     <br>
        
