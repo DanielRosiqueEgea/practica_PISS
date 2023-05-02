@@ -1,0 +1,27 @@
+.descriptionContainer{
+    height: 300px;
+    padding: 20px;
+}
+
+#carouselId{
+    padding: 20px;
+}
+
+.gameContainer{
+    background-color: #F4FEFF;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+button{
+    background-color: #FF8E3C;
+    font-weight: bold;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}

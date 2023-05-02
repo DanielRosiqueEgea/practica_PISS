@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" type="text/css" href="estilos/datos_juego.css">
 <?php
 
 if (!headers_sent() && '' == session_id()) {
