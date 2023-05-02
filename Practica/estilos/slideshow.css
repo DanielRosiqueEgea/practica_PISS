@@ -36,6 +36,8 @@
   float: left;
 }
 #mainContent .precio{
+  display: inline-block;
+  vertical-align: middle;
   border: none;
   outline: 0;
   padding: 12px;

@@ -31,7 +31,7 @@
         session_start();
     }
     // include("../../Practica/head.php");
-    $sql="SELECT DISTINCT v.idJuego,v.nombreJuego,v.duracion FROM videojuegos AS v";
+    $sql="SELECT DISTINCT v.* FROM videojuegos AS v";
     $sql = $sql. " LEFT JOIN generosjuego ON generosjuego.idJuego = v.idJuego LEFT JOIN generos ON generosjuego.idGenero = generos.idGenero"; 
     $sql = $sql." LEFT JOIN consolajuego ON v.idJuego = consolajuego.idJuego LEFT JOIN consolas ON consolajuego.idConsola = consolas.idConsola";
     $sql = $sql." WHERE TRUE ";
@@ -70,6 +70,7 @@ form {
 </style>
 
 <body>
+
 <section id="mainContent">
     
         <?php
@@ -111,22 +112,52 @@ form {
                              $resultado_imagen = peticionSQL($sql_imagen,$link);    
                             ?>
 
-                     
+                            <div style="position: relative;">
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
+                            <?php 
+                            if($juego->rotacion){
+                            ?>
+                            <span class="fa-stack" title="Rotación" style="font-size:30px; position: absolute; bottom: 1%; right: 2%;" >
+                            <!-- <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:50px; color: red; "></i>
+                            <i class="fa-solid fa-triangle-exclamation fa-stack-1x" style="font-size:40px; color: white;"></i> -->
+                            <i class="fa-solid fa-circle fa-stack-1x" style="font-size:; color: white ;"></i>
+                                <i class="fa-solid fa-dollar-sign fa-stack-1x" style="font-size: 20px; color:;"></i>
+                                <i class="fa-solid fa-ban fa-stack-1x" style="color:red;"></i>
+                            </span>    
+                            <?php }?>
+                        </div>
                             <strong class="tituloPeq" itemprop="name"><?=$juego->nombreJuego?></strong>
 
-                            <p class="precio" itemprop="price">
-                                <i class="fa-solid fa-heart"></i>
-                                <i class="fa-solid fa-chess-board"></i> <!-- tablero -->
-                                <i class="fa-solid fa-dice"></i> <!-- dados -->
-                                <i class="fa-solid fa-dice-d20"></i> <!-- Rol -->
-                                <i class="fa-solid fa-martini-glass-citrus"></i> <!-- PArty games -->
-                                <i class="fa-solid fa-chess-pawn"></i> <!-- fichas -->
-                                <i class="fa-solid fa-crosshairs"></i> <!-- shooters -->
-                                <span class="fa-solid fa-custom-svg" style="font-size: 24px; color: #333;">
-                                <img class="fa-solid" src="imagenes/cartas.svg" alt="Descripción del icono SVG">
-                                </span>                          
-                                </p>
+                            <span class="precio" itemprop="price">
+                               
+                                <?php 
+
+                                if(isset($_SESSION['user'])){
+                                $sql_fav = "SELECT * FROM favoritos WHERE idUsuario = ".$_SESSION['user']." AND idJuego = ".$juego->idJuego."";
+                                $resultado_fav = peticionSQL($sql_fav,$link);
+                                if(mysqli_num_rows($resultado_fav)!=0){
+                                echo '<i class="fa-solid fa-heart" title="Favorito"></i>';
+                                }
+                                }
+                                $sql_genero = "SELECT generos.* FROM generos 
+                                INNER JOIN generosjuego ON generosjuego.idGenero = generos.idGenero 
+                                INNER JOIN videojuegos ON videojuegos.idJuego = generosjuego.idJuego 
+                                WHERE videojuegos.idJuego = ".$juego->idJuego.";";
+
+                                $resultado_genero = peticionSQL($sql_genero,$link);
+
+                                if(mysqli_num_rows($resultado_genero)==0){
+                                    echo '<i class="fa-solid fa-exclamation" title="SIN GENERO"></i>';
+                                    }
+                                while($generoJuego = mysqli_fetch_object($resultado_genero)){
+                                    
+                                
+                                ?>
+                                        <i class="<?=$generoJuego->icono?>"  title="<?=$generoJuego->nombreGenero?>"></i>
+                                <?php }?>
+                                
+                               
+                                </span>
                             <!-- <=$juego->precioJuego==0?"Free to Play":$juego->precioJuego."€"?> -->
                         </a>
                     </article>
