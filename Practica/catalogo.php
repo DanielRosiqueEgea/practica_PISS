@@ -56,6 +56,14 @@
         $sql= $sql." v.nombreJuego LIKE '%".$_POST['nombre']."%'"; 
     }
 
+
+    $duracion = array(
+        "0" => '<i class="fa-solid fa-battery-quarter fa-stack-1x"></i>',
+        "1" =>'<i class="fa-solid fa-battery-quarter fa-stack-1x"></i>',
+        "2" =>'<i class="fa-solid fa-battery-half fa-stack-1x"></i>',
+        "3" => '<i class="fa-solid fa-battery-three-quarters fa-stack-1x"></i>',
+        "4" => '<i class="fa-solid fa-battery-full fa-stack-1x"></i>'
+    );
 ?>     
 
      
@@ -114,9 +122,14 @@ form {
 
                             <div style="position: relative;">
                             <img  itemprop="image" src="<?=mysqli_fetch_object($resultado_imagen)->urlImagen?>" alt="<?=$juego->nombreJuego?>">
-                          
-
-
+                            <span class="fa-stack" title="Duración"  style="font-size:24px; position: absolute; bottom: 1%; left: 2%;">
+                            <i class="fa-solid fa-circle fa-stack-1x " style ="font-size:30px;color:white;"></i>
+                            
+                            <?php 
+                            echo $duracion[$juego->duracion];
+                            ?>
+                            </span>
+                            
                             <?php 
                             if($juego->rotacion){
                             ?>
