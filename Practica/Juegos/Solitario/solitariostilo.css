@@ -20,17 +20,17 @@
      background-size: cover;
      background-position: center;
   }
-  .navbar {
+  .sidepanel {
      background: rgba(8,8,8,.75);
   }
-  .navbar a {
+  .sidepanel a {
      color: #fff;
   }
-  .navbar li[data-active="false"] {
+  .sidepanel li[data-active="false"] {
      opacity: 0.5;
      pointer-events: none;
   }
-  .navbar li[data-active="true"] {
+  .sidepanel li[data-active="true"] {
      opacity: 1;
      pointer-events: auto;
   }

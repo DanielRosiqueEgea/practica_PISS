@@ -8,7 +8,7 @@
 
 
 
-<nav class="navbar">
+<nav class="sidepanel">
     <!--Enlace a las opciones-->
     <a href="#" class="enlaceHover" id="topbarIzq" onclick="openNav(this)" ><i class="fa-solid fa-bars fa-2xl" ></i></a>
     
@@ -36,7 +36,7 @@
 </nav>
 
 <!--
-<nav class="navbar">
+<nav class="sidepanel">
     <!--Parte central->
     <a href="index.php" class="mx-auto"> <img class="animada" onmouseover="animarFractal(this)" onmouseout="detenerFractal(this)" src="imagenes/fractalLogo.jpg" weight=100 height="100"></a> 
 </nav>

@@ -2,7 +2,7 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <button id="toggle-button" class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter" style="background-color: #FF8E3C; border-color: #f2f2f2;" onclick="toggleSearchForm()">+</button> 
-                <span class="navbar-toggler-icon"></span>
+                <span class="sidepanel-toggler-icon"></span>
             </button>
         </div>
         <input type="text" class="form-control" placeholder="Buscar por nombre" name="nombre" value="<?php echo isset($_POST['nombre']) ? $_POST['nombre'] : ''; ?>">

@@ -7,13 +7,23 @@
   top: auto;
   left: 0;
   background-color: #F4F8FF;
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
+  
   overflow: hidden ; /*Desactivamos el scroll */
   display: flex;
-  transition: 0.5s;
+  
   font-size: 24px;
 }
+
+.sidepanel_1{
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  transition: 0.5s;
+}
+
+.activesidepanel{
+  height: 100px;
+}
+
 .sidepanel {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */

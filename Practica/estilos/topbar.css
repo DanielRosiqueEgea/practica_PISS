@@ -2,20 +2,20 @@
 
 /* Create a top navigation bar with a black background color  */
 
-/* He modificado todos los .topnav por .navbar para así utilizar bootstrap mas facil  */
+/* He modificado todos los .topnav por .sidepanel para así utilizar bootstrap mas facil  */
 @media screen and (max-width: 600px) {
-    .navbar a.split {display: none;}
+    .sidepanel a.split {display: none;}
     
   }
   
   
-.navbar {
+.sidepanel {
     background-color: #F4FEFF;
     overflow: hidden;
   }
   
   /* Style the links inside the navigation bar */
-  /*.topnav a,*/ .navbar button {
+  /*.topnav a,*/ .sidepanel button {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -25,28 +25,28 @@
   }
   
   /* Change the color of links on hover */
-  .navbar a:hover {
+  .sidepanel a:hover {
     background-color: #ddd;
     color: black;
   }
 
-  .navbar a.enlaceHover:hover {
+  .sidepanel a.enlaceHover:hover {
     background-color: #ddd;
     color: #FF8E3C;
   }
 
 /*
-  .navbar a.split:hover{
+  .sidepanel a.split:hover{
     background-color: #ccd3d4;
     color: black;
   }
 */
   /* Create a right-aligned (split) link inside the navigation bar */
-  .navbar a.split {
+  .sidepanel a.split {
     padding: 20px;
   }
 
-  .navbar a.enlaceHover{
+  .sidepanel a.enlaceHover{
     color: #000000;
     padding: 20px;
   }

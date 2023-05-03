@@ -1,10 +1,28 @@
 <script src="scripts/sidepanel.js"></script>
 <link href="estilos/sidepanel.css" rel="stylesheet">
-<nav id="mySidepanel" class="sidepanel d-flex justify-content-center">
+<nav id="mysidepanel" class="sidepanel sidepanel_1 d-flex justify-content-center">
 
-        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Categorías <i class="fa fa-caret-right"></i></a>
+        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this,'lvlCategorias')">Categorías <i class="fa fa-caret-right"></i></a>
+        
+        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Nº Jugadores <i
+                class="fa fa-caret-right"></i></a></li>
+      
+        <a href="catalogo.php?all=1">Catalogo</a>
 
-        <span class="segundolvl">
+<a href="foro.php">Acceso al foro</a>      
+
+        <nav class="busqueda">
+            <form action="catalogo.php" method="post">
+                <input type="text" placeholder="Busqueda.." name="nombre" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </nav>
+        
+    </nav>
+
+
+    <nav id="lvlCategorias" class="sidepanel d-flex justify-content-center">
+
             <?php include_once("funcionBBDD.php");
             $link = db_connect();
             $qry_generos = "SELECT * FROM generos";
@@ -23,10 +41,8 @@
             <!-- <a href="catalogo.php?genero=<=$genero->idGenero?>"><=$genero->nombreGenero?></a> -->
             <?php }}?>
 
-        </span>
+            </nav>
 
-        <a class="dropdown-btn" href="javascript:void(0)" onclick="openCloseDrop(this)">Nº Jugadores <i
-                class="fa fa-caret-right"></i></a></li>
         <span class="segundolvl" style="margin: 0px -51px 13px -33px;">
         <?php 
             $qry_consolas = "SELECT * FROM consolas";
@@ -46,15 +62,3 @@
             <?php }}?>
             
         </span>
-        <a href="catalogo.php?all=1">Catalogo</a>
-
-<a href="foro.php">Acceso al foro</a>      
-
-        <nav class="busqueda">
-            <form action="catalogo.php" method="post">
-                <input type="text" placeholder="Busqueda.." name="nombre" required>
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </nav>
-        
-    </nav>
